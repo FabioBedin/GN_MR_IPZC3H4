@@ -1,17 +1,20 @@
-name: "GN_MR_IPZC3H4"
+name: GN_MR_IPZC3H4
 output_dir: ../docs
 navbar:
-  title: "GN_MR_IPZC3H4"
+  title: GN_MR_IPZC3H4
   left:
   - text: Home
     href: index.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/FabioBedin/GN_MR_IPZC3H4
 output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
     theme: cosmo
     highlight: textmate
+    code_folding: hide
+    fig_caption: yes
+    df_print: paged
