@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Fabio Bedin | MS-Unit" />
+
+
+<title>IPZC3H4</title>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.18/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<script src="site_libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">GN_MR_IPZC3H4</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">IPZC3H4</h1>
+<h4 class="author">Fabio Bedin | MS-Unit</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-07-22
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>GN_MR_IPZC3H4/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210721code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210721)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210721code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210721)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongfd7984a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> fd7984a </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongfd7984a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version fd7984a. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  code/custom_functions.R
+    Untracked:  data/expdesign.tsv
+    Untracked:  data/expdesign_old.tsv
+    Untracked:  data/proteinGroups.txt
+    Untracked:  data/proteinGroups_INPUT.txt
+    Untracked:  data/proteinGroups_old.txt
+    Untracked:  output/Significant.txt
+    Untracked:  output/Significant_old.txt
+    Untracked:  output/new_proteins_identify.txt
+    Untracked:  output/old_proteins_identify.txt
+    Untracked:  output/results_GN_MR_IPZC3H4_210721.xlsx
+    Untracked:  output/results_GN_MR_IPZC3H4_old_210721.xlsx
+    Untracked:  output/~$results_GN_MR_IPZC3H4_210721.xlsx
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Deleted:    analysis/about.Rmd
+    Deleted:    analysis/license.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/IPZC3H4.Rmd</code>) and HTML (<code>docs/IPZC3H4.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+fd7984a
+</td>
+<td>
+FabioBedin
+</td>
+<td>
+2021-07-22
+</td>
+<td>
+upload project
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<pre class="r"><code>knitr::opts_chunk$set(fig.align = &quot;center&quot;, warning=FALSE, message=FALSE, fig.height=8, fig.width=12)
+library(&quot;MBQN&quot;)
+library(&quot;DEP&quot;)
+library(&quot;SummarizedExperiment&quot;)
+library(&quot;preprocessCore&quot;)
+library(&quot;enrichR&quot;)
+library(&quot;DT&quot;)
+library(&quot;patchwork&quot;)
+library(&quot;here&quot;)
+library(&quot;datapasta&quot;)
+library(&quot;ggstatsplot&quot;)
+library(&quot;UpSetR&quot;)
+library(&quot;ggrepel&quot;)
+library(&quot;visdat&quot;)
+library(&quot;naniar&quot;)
+library(&quot;gprofiler2&quot;)
+library(&quot;openxlsx&quot;)
+library(&quot;org.Hs.eg.db&quot;)
+library(&quot;rrvgo&quot;)
+
+library(&quot;tidyverse&quot;)</code></pre>
+<pre class="r"><code>source(here::here(&quot;code/custom_functions.R&quot;))</code></pre>
+<pre class="r"><code>header_style &lt;- createStyle(
+  fontSize = 12,
+  fontColour = &quot;#0f0f0f&quot;,
+  fgFill = &quot;#faf2ca&quot;,
+  halign = &quot;center&quot;,
+  border = &quot;TopBottomLeftRight&quot;)
+
+body_style &lt;- createStyle(
+  halign = &quot;center&quot;,
+  border = &quot;TopBottomLeftRight&quot;)
+
+excel &lt;- createWorkbook()</code></pre>
+<pre class="r"><code>data &lt;- read.csv(here::here(&quot;data/proteinGroups.txt&quot;), header = TRUE,stringsAsFactors = FALSE, sep = &quot;\t&quot;)
+
+data &lt;- data[data$Reverse != &quot;+&quot; &amp; data$Potential.contaminant != &quot;+&quot; &amp; data$Only.identified.by.site != &quot;+&quot; &amp; data$Peptides &gt;= 2,]
+
+data_unique &lt;- make_unique(data, &quot;Gene.names&quot;, &quot;Protein.IDs&quot;, delim = &quot;;&quot;)</code></pre>
+<pre class="r"><code>cond_1 &lt;- &quot;IPZC3H4&quot;
+
+cond_2 &lt;- &quot;IPEV&quot;
+
+conditions&lt;-c(cond_1,cond_2)
+
+test&lt;- paste(cond_1,cond_2,sep=&quot;_vs_&quot;)
+
+expdesign &lt;- read.table(here::here(&quot;data/expdesign.tsv&quot;), header = T, stringsAsFactors = F)
+
+expdesign &lt;- subset(expdesign, condition %in% conditions)
+
+columns&lt;-match(paste(&quot;LFQ.intensity.&quot;,expdesign$label,sep=&quot;&quot;),colnames(data_unique))
+
+data_se &lt;- make_se(data_unique, columns, expdesign)
+
+data_filt &lt;- filter_missval(data_se, thr = 0)</code></pre>
+<div id="quality-control-plots" class="section level2 tabset tabset-fade">
+<h2>Quality control plots</h2>
+<div id="proteins-numbers" class="section level3">
+<h3>Proteins numbers</h3>
+<pre class="r"><code>plot_numbers_lables(data_filt)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/proteins_1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="normalization" class="section level3">
+<h3>normalization</h3>
+<pre class="r"><code>plot_normalization(data_filt)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/normalization_1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="upset-plot" class="section level3 tabset tabset-fade">
+<h3>upset plot</h3>
+<div id="ipzc3h4" class="section level4">
+<h4>IPZC3H4</h4>
+<pre class="r"><code>assay(data_filt) %&gt;% 
+  as.data.frame() %&gt;% 
+  select(starts_with(cond_1)) %&gt;% 
+  rownames_to_column() %&gt;% 
+  pivot_longer(!rowname, names_to = &quot;samples&quot;, values_to = &quot;intensity&quot;) %&gt;% 
+  mutate(intensity = if_else(is.na(intensity), 0, 1)) %&gt;% 
+  pivot_wider(names_from = samples, values_from = intensity) %&gt;% 
+  as.data.frame() %&gt;% 
+  upset(nsets = 3,
+        order.by = &quot;freq&quot;,
+        keep.order = T,
+        text.scale = 2.5,
+        point.size = 4,
+        line.size = 0.5, 
+        sets.bar.color = &quot;coral2&quot;,
+        main.bar.color  = &quot;gray44&quot;)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/upset_1.1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ipev" class="section level4">
+<h4>IPEV</h4>
+<pre class="r"><code>assay(data_filt) %&gt;% 
+  as.data.frame() %&gt;% 
+  select(starts_with(cond_2)) %&gt;% 
+  rownames_to_column() %&gt;% 
+  pivot_longer(!rowname, names_to = &quot;samples&quot;, values_to = &quot;intensity&quot;) %&gt;% 
+  mutate(intensity = if_else(is.na(intensity), 0, 1)) %&gt;% 
+  pivot_wider(names_from = samples, values_from = intensity) %&gt;% 
+  as.data.frame() %&gt;% 
+  upset(nsets = 3,
+        order.by = &quot;freq&quot;,
+        keep.order = T,
+        text.scale = 2.5,
+        point.size = 4,
+        line.size = 0.5, 
+        sets.bar.color = &quot;turquoise3&quot;,
+        main.bar.color  = &quot;gray44&quot;)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/upset_1.2-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="both" class="section level4">
+<h4>Both</h4>
+<pre class="r"><code>assay(data_filt) %&gt;% 
+  as.data.frame() %&gt;% 
+  rownames_to_column() %&gt;% 
+  pivot_longer(!rowname, names_to = &quot;samples&quot;, values_to = &quot;intensity&quot;) %&gt;% 
+  mutate(intensity = if_else(is.na(intensity), 0, 1)) %&gt;% 
+  pivot_wider(names_from = samples, values_from = intensity) %&gt;% 
+  as.data.frame() %&gt;% 
+  upset(nsets = 6,
+        order.by = &quot;freq&quot;,
+        keep.order = T,
+        text.scale = 2.5,
+        point.size = 4,
+        line.size = 0.5, 
+        sets.bar.color = rep(c(&quot;turquoise3&quot;, &quot;coral2&quot;), each = 3),
+        main.bar.color  = &quot;gray44&quot;)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/upset_1.3-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="dep-analysis" class="section level2 tabset tabset-fade">
+<h2>DEP analysis</h2>
+<pre class="r"><code>data_diff &lt;- test_diff_BH(data_filt, type = &quot;manual&quot;, test = test)
+
+dep &lt;- add_rejections(data_diff, alpha = 0.05, lfc = 1)
+
+results&lt;-get_results(dep)</code></pre>
+<pre class="r"><code>a &lt;- get_df_wide(dep) %&gt;% 
+  select(c(name, Protein.IDs, Protein.names, starts_with(conditions), -ends_with(c(&quot;CI.R&quot;, &quot;CI.L&quot;)), starts_with(&quot;Peptides.&quot;))) %&gt;% 
+  dplyr::rename_with(., ~ gsub(pattern = paste0(test, &quot;_&quot;), replacement = &quot;&quot;, .), starts_with(test)) %&gt;% 
+  dplyr::rename_with(., ~ gsub(pattern = &quot;^&quot;, replacement = &quot;LFQ_intensity_&quot;, .), starts_with(conditions)) %&gt;%
+  dplyr::rename(FC = diff) %&gt;% 
+  mutate(significant = if_else(significant, &quot;+&quot;, &quot;&quot;)) %&gt;%
+  arrange(desc(significant), p.val) %&gt;% 
+  mutate(across(c(p.adj, p.val), format, scientific = T, digits = 2)) %&gt;% 
+  mutate(across(starts_with(c(&quot;LFQ&quot;, &quot;FC&quot;)), .fns = ~ round(.x, digits = 2))) %&gt;% 
+  relocate(significant) %&gt;%
+  relocate(starts_with(&quot;LFQ&quot;), .after = p.val)
+
+addWorksheet(excel, sheetName = test, gridLines = F)
+
+writeDataTable(excel, sheet = test, x = a, keepNA = T, na.string = &quot;NaN&quot;)
+
+n_row &lt;- a %&gt;% nrow() + 1
+
+n_col &lt;- a %&gt;% ncol()
+
+setColWidths(excel, sheet = test, cols = 1:n_col, widths = 21)
+
+addStyle(excel, sheet = test, style = header_style, rows = 1, cols = 1:n_col, gridExpand = T)
+
+addStyle(excel, sheet = test, style = body_style, rows = 2:n_row, cols = 1:n_col, gridExpand = T)</code></pre>
+<p>There are <strong>15</strong> significant proteins.</p>
+<div id="pca" class="section level3">
+<h3>PCA</h3>
+<pre class="r"><code>plot_pca(dep, x = 1, y = 2, n = 100, point_size = 4, indicate = &quot;condition&quot;)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/PCA_1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="volcano" class="section level3">
+<h3>Volcano</h3>
+<pre class="r"><code>plot_volcano(dep, contrast=test, add_names=T,label_size=5,adjusted = F)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/volcano_1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="result-table" class="section level3">
+<h3>Result table</h3>
+<pre class="r"><code>results %&gt;% 
+  select(starts_with(&quot;name&quot;) | starts_with(test)) %&gt;% 
+  filter(across(ends_with(&quot;significant&quot;))) %&gt;% 
+  arrange(across(ends_with(&quot;p.adj&quot;))) %&gt;%
+  mutate(across(2:3, format, scientific = T, digits = 2)) %&gt;%
+  dplyr::rename_with(~ tolower(gsub(paste0(test,&quot;_&quot;), &quot;&quot;, .x)), .cols = starts_with(test)) %&gt;% 
+  mutate(significant = str_to_title(significant)) %&gt;%
+  dplyr::rename(FC = ratio) %&gt;% 
+  DT::datatable(options = list(
+  columnDefs = list(list(className = &#39;dt-center&#39;, targets = 1:5)),
+  pageLength = 10)) %&gt;%
+  formatStyle(&#39;FC&#39;, backgroundColor = styleInterval(c(-1, 1), c(&#39;lightblue&#39;, &#39;white&#39;, &#39;tomato&#39;))) %&gt;% 
+  formatStyle(&#39;significant&#39;, color = styleEqual(c(&quot;True&quot;, &quot;False&quot;), c(&#39;green&#39;, &#39;red&#39;)))</code></pre>
+<div id="htmlwidget-b19692791c0e3bd99080" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b19692791c0e3bd99080">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],["WDR82","ZC3H4","FAM83H","KRT18","RBM14","NES","SDF4","VIM","PLEC.1","ARHGEF2","PRKDC","RCN3","BAG3","CAP2","HDAC2"],["2.7e-07","1.5e-06","3.7e-05","3.7e-05","3.8e-05","7.5e-05","6.1e-05","7.8e-05","1.9e-04","2.7e-04","6.9e-04","6.5e-04","8.3e-04","1.0e-03","1.0e-03"],["1.7e-04","4.8e-04","4.7e-03","4.7e-03","4.7e-03","6.2e-03","6.2e-03","6.2e-03","1.3e-02","1.7e-02","3.6e-02","3.6e-02","4.0e-02","4.4e-02","4.4e-02"],["True","True","True","True","True","True","True","True","True","True","True","True","True","True","True"],[10.3,9.15,7.57,4.57,5.55,7.28,5.76,3.84,4.67,6.16,3.1,7.23,3.55,-2.74,2.52]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>p.val<\/th>\n      <th>p.adj<\/th>\n      <th>significant<\/th>\n      <th>FC<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-center","targets":[1,2,3,4,5]},{"orderable":false,"targets":0}],"pageLength":10,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= -1 ? \"lightblue\" : value <= 1 ? \"white\" : \"tomato\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'color':value == \"True\" ? \"green\" : value == \"False\" ? \"red\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="unique" class="section level3">
+<h3>Unique</h3>
+<pre class="r"><code>data_filt_1 &lt;- filter_missval(data_se, thr = 1)
+
+unique_pair(data_filt_1, conditions = conditions)</code></pre>
+<div id="htmlwidget-af97d8154214546b85a3" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-af97d8154214546b85a3">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320"],["AAR2","AARS2","ABCF3","AFTPH","AGFG1","AHCTF1","AHNAK","AHR","AHSA1","AK4","ALOX12B","ANKHD1","ANXA1","ANXA10","AP3S1","AP4M1","APOB","ARAF","ARCN1","ARF5","ARFGEF2","ARHGAP21","ARL1","ASPM","ATG16L1","ATP2B1","ATP6AP2","ATXN2","AURKB","BAG5","BCAR2","BSG","BST2","CAPN7","CARM1","CBS","CD55","CDC16","CDC27","CDC45","CDK4","CDKN2AIP","CEP170","CEP295","CFL1","CHD9","CHTF18","CNOT1","COL1A2","COLGALT1","COPG1","CPEB4","CRTAP","CSNK1A1","CTBP2","CUL3","DCAF13","DCAF7","DCTN1","DDX6","DHX37","DIAPH1","DIMT1","DLAT","DNAJC13","DPM1","DSG2","DST","DYNC1LI1","DYNLL1","EIF2B5","EIF2S1","EIF4G2","ELAC2","ERAL1","ERBB2IP","ERCC2","ETFA","ETFB","FAM46A","FAM83B","FAM83D","FANCL","FARP1","FARP2","FARP2.1","FASTKD2","FEN1","FERMT2","FGFR1OP","FNDC3B","G3BP1","GALK1","GEMIN4","GIGYF2","GMDS","GNG12","GOLGA3","GOT2","GRPEL1","GTF3C5","GULP1","H2AFV","HAUS6","HAX1","HDAC1","HDAC3","HEATR1","HIST1H1B","HK1","HKDC1","HNRNPR","HSD17B10","HSDL2","HSPA2","HSPB8","HSPBP1","IDH1","IDH3B","IGBP1","ILVBL","IMPA2","INPP5K","INTS4","IQSEC1","ITGA6","ITGB4","KANK2","KARS","KDM1A","KIAA1217","KIF5B","KIFC3","KPNA2","LGALS1","LMNB1","LONP1","LRRC40","LUZP1","MAGEA1","MAP2K3","MARCH7","MARK3","MCCC1","MCM3AP","MCM4","MIF","MLH1","MON2","MRI1","MRPL38","MRPL44","MRPL50","MSH6","MTA2","MTCL1","MTUS1","MYCBP2","MYO6","MYO9B","NBPF14","NCAPH","NCAPH2","NCOR1","NCOR2","NDUFA9","NEFH","NELFB","NFAT5","NKRF","NME1","NOL10","NOP2","NUP133","NUP153","NUP205","NUP210","NUP214","NUP43","NUP62","NUP88","NUP98","OAS3","OAT","ORC1","OSGEP","P4HA1","PABPN1","PANK4","PCCA","PCM1","PDCD6","PDE3A","PELO","PEX1","PGM3","PHKG2","PHLDB2","PIK3C2A","PKP2","PKP4","PLK1","PLRG1","POLR1C","PPFIA1","PPIL3","PPP1R13L","PPP6C","PPP6R3","PROSER1","PRRC2B","PRRC2C","PSMD14","PSMD8","PSMF1","PTCD3","PTK2","PUM1","PYGB","QSER1","RABGGTA","RANBP2","RANGAP1","RARS","RBM25","RBMS2","RCOR1","RDH10","RFC5","RNF213","RPL23A","RPL32","RPL35","RPL36AL","RPL38","RPS10","RPS13","RPS15","RPS17","RPS24","RPS28","RPTOR","RRBP1","RRM2","RTCA","SCFD1","SDHA","SEC13","SEC23IP","SEC24B","SEC24C","SENP3","SF3B1","SFPQ","SKIV2L","SLC16A3","SMC2","SMC4","SMG7","SMTN","SNRPD1","SNRPE","SNX6","SNX9","SRM","SRSF2","SRSF4","SSR4","SSRP1","STXBP2","SUGP2","SUPT16H","SYNM","TBC1D15","TBK1","TBL1XR1","TCEB1","TCEB2","TCF12","TDRD9","THOC6","TIMM13","TIMM44","TLE3","TNFAIP2","TNKS1BP1","TP73","TPM4","TRIM27","TRIM32","TRIP10","TRUB2","TTC27","TTC28","TUBA1B","TUBB4A","UBAP2","UBAP2L","UBE3C","UBL5","UBR4","UNC45A","UQCRC1","UQCRC2","USP10","UTP15","VARS","VPS51","VPS52","VRK1","WDR18","WDR62","WIZ","WRAP73","XPOT","YTHDF3","ZCCHC8","ZNF112","ZNF131","ZNF281"],[true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],[false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>unique_IPZC3H4<\/th>\n      <th>unique_IPEV<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-center","targets":[1,2,3]},{"orderable":false,"targets":0}],"pageLength":10,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'color':value == true ? \"green\" : value == false ? \"red\" : null});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'color':value == true ? \"green\" : value == false ? \"red\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<pre class="r"><code>a &lt;- unique_pair(data_filt_1, conditions = conditions, table = T)
+
+b &lt;- a %&gt;% 
+  pivot_longer(!starts_with(c(&quot;name&quot;, &quot;unique_&quot;, &quot;Protein.&quot;)), names_to = &quot;samples&quot;, values_to = &quot;intensity&quot;) %&gt;% 
+  mutate(cond = gsub(pattern = &quot;..$&quot;, &quot;&quot;, samples)) %&gt;% 
+  mutate(intensity = case_when(is.na(intensity) ~ 0, TRUE ~ as.numeric(1))) %&gt;%
+  group_by(name, cond) %&gt;% 
+  mutate(Unique_class_B = case_when(sum(intensity) == 2 ~ &quot;+&quot;)) %&gt;% 
+  mutate(Unique_class_A = case_when(sum(intensity) == 3 ~ &quot;+&quot;)) %&gt;% 
+  ungroup() %&gt;% 
+  select(-cond) %&gt;% 
+  group_by(name) %&gt;% 
+  fill(Unique_class_B, .direction = &quot;downup&quot;) %&gt;% 
+  fill(Unique_class_A, .direction = &quot;downup&quot;) %&gt;% 
+  ungroup() %&gt;% 
+  pivot_wider(names_from = samples, values_from = intensity) %&gt;% 
+  select(name, Unique_class_B, Unique_class_A) %&gt;% 
+  mutate(across(starts_with(&quot;Unique_&quot;), ~ case_when(is.na(.x) ~ &quot;&quot;, TRUE ~ as.character(.x))))
+
+a &lt;- a %&gt;% left_join(b)
+
+unique_name &lt;- paste0(&quot;Unique_&quot;, test)
+
+addWorksheet(excel, sheetName = unique_name, gridLines = F)
+
+writeDataTable(excel, sheet = unique_name, x = a, keepNA = T, na.string = &quot;NaN&quot;)
+
+n_row &lt;- a %&gt;% nrow() + 1
+
+n_col &lt;- a %&gt;% ncol()
+
+setColWidths(excel, sheet = unique_name, cols = 1:n_col, widths = 21)
+
+addStyle(excel, sheet = unique_name, style = header_style, rows = 1, cols = 1:n_col, gridExpand = T)
+
+addStyle(excel, sheet = unique_name, style = body_style, rows = 2:n_row, cols = 1:n_col, gridExpand = T)</code></pre>
+</div>
+</div>
+<div id="gene-ontology" class="section level2 tabset tabset-fade">
+<h2>Gene Ontology</h2>
+<p>Then we perfom a gene onology analysis (GO or by branch <a href="GO:MF" class="uri">GO:MF</a>, <a href="GO:BP" class="uri">GO:BP</a>, <a href="GO:CC" class="uri">GO:CC</a>) and a KEGG ontology.</p>
+<p>The enrichment results are visualized with an interactive <strong>Manhattan-like-plot</strong>:</p>
+<div id="ipzc3h4-1" class="section level3">
+<h3>IPZC3H4</h3>
+<p>Both significant and unique proteins identify are used for GO:</p>
+<pre class="r"><code>Gname &lt;- results %&gt;% filter(significant &amp; get(paste0(test, &quot;_ratio&quot;)) &gt; 0) %&gt;% pull(name)
+
+Uni &lt;- a  %&gt;% filter(unique_IPZC3H4 == &quot;+&quot;) %&gt;% pull(name) %&gt;% unique()
+
+GO_name &lt;- c(Gname, Uni)
+
+GO &lt;- gost(query = GO_name, organism = &quot;hsapiens&quot;, sources = c(&quot;GO:BP&quot;, &quot;GO:MF&quot;, &quot;GO:CC&quot;, &quot;KEGG&quot;), ordered_query = T)
+
+gostplot(GO, capped = TRUE, interactive = TRUE)</code></pre>
+<div id="htmlwidget-a2d8ae0d88b50851fe41" style="width:1152px;height:768px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a2d8ae0d88b50851fe41">{"x":{"data":[{"x":[131.646338736966,100.335534019628,86.5648672888846,152.440864950662,97.2021122614,114.153026480258,90.4396964369799,100.323827587156,151.250710982717,84.4850244530994,84.5240458946713,151.254613126874,150.400043556448,86.732659487644,166.258357411291,104.776174070517,151.270221703503,84.5357523271429,156.592746333918,126.639887783284,86.2097721705798,135.88406729168,84.5201437505141,97.2255251263431,124.552240659184,159.753483101246,97.3152744419586,135.872360859209,131.349775781019,96.04707759087,83.681182756717,125.917991114203,175.486928343059,83.4314455306565,131.700968755167,136.317205293129,90.2445892291201,75.5803314863789,134.79927121598,134.803173360137,136.539627510089,89.4485518210522,137.764900775449,128.8719142412,120.704726520189,91.6142418282958,137.733683622191,107.7496079183,86.3034236303525,136.321107437286,83.4431519631281,177.094611735824,85.7844384574455,144.445371572568,89.7412126328419,144.460980149196,89.9090048316013,89.7295062003703,141.440720571527,144.453175860882,89.9324176965445,172.025726475626,152.148204138872,104.862021241975,86.6351058837141,84.5123394621997,88.9412730806168,83.5992377294159,114.246677940031,84.5084373180425,123.451836006855,100.24968684817,93.7994425563254,111.140571190903,84.5045351738853,114.176439345201,130.545934084637,149.568886850966,83.4977819813289,86.6155951629282,96.964081467811,120.650096501989,84.5435566154573,85.675178421044,97.2528401354435,154.750934291721,98.0722904084546,122.495810688342,104.885434106918,171.253101932502,93.5692160510508,93.3077723925187,137.729781478034,120.653998646146,123.440129574383,97.3191765861158,178.93642377802,114.000842858127,168.162603760003,137.792215784549,124.103494081107,83.6031398735731,86.7365616318012,114.297405814074,126.487704161153,126.483802016996,173.528051976147,125.933599690831,93.7213996731814,152.1364977064,173.516345543675,84.3835687050123,111.90929358987,158.520405547572,75.5217993240209,89.4524539652094,76.4153903360187,124.801977885245,123.791322548531,110.449891675079,147.516359024281,83.4353476748137,75.1784106381877,125.925795402517,124.844901470974,84.8947495896049,122.5816578598,90.7635744020271,122.593364292272,114.285699381602,75.4125392876195,86.5765737213562,112.884829629169,136.325009581444,97.3113722978014,152.390137076618,150.002024852414,142.876709621375,137.991225136566,132.270681802117,128.883620673671,102.341236116427,152.249659886959,147.933888449101,85.2615511403813,131.11174498743,112.369746600419,87.7550212568293,123.330869537982,124.856607903446,136.531823221775,104.904944827704,85.2576489962241,86.2175764588942,157.650227400518,136.703517564691,101.252537896569,86.7404637759584,83.4938798371717,124.774662876144,124.848803615131,83.4041305215562,89.7997447951998,117.348882545001,86.572671577199,154.610457102062,154.146101947356,126.370639836437,163.062501346548,86.8536259565171,93.7096932407099,123.787420404374,90.2172742200198,136.660593978962,171.257004076659,122.347529210369,107.45694710651,154.770445012507,132.321409676161,132.325311820318,84.5474587596145,122.585560003958,107.726195053357,102.181248205982,83.6733784684027,140.828083938847,176.3766172109,78.4718203068609,86.2644021887806,110.9493661272,75.5881357746933,94.9232600735977,93.0424265898294,91.6064375399814,157.81411745512,132.290192522903,150.029339861515,98.1464311474413,85.2303339871237,176.017619948438,124.778565020302,124.883922912546,164.814564073129,88.0125627712042,80.3799687997295,137.94439940668,177.949181306249,85.2264318429665,86.7677787850588,86.3112279186669,114.090592173743,150.493695016221,91.977141234915,97.7601188758789,137.74929219882,136.165021670998,75.2954749629036,89.2495424690352,97.861574623966,172.794448874594,95.1378780022435,84.5591651920861,160.007122471464,85.9639370886765],"y":[13.4968074306082,12.5984229360994,12.5226013060046,11.1883645591372,10.1708875516587,10.1093295177896,9.97846249044316,9.82689938874642,9.71825608931217,9.70364748195536,9.65864710405234,9.65864710405234,9.6529954458544,9.58730733262668,9.45267047738086,9.40865589654705,9.30363110815202,9.30363110815202,8.90114204197229,8.86884094863642,8.84861999250577,8.79485867805012,8.73777818830105,8.67862237787165,8.66546978530453,8.6366880740307,8.5446193679687,8.37931952907504,8.20771567585641,8.20411505201087,8.05360218628939,8.02588010786159,8.02588010786159,7.99718091761606,7.94843208179554,7.92959181624702,7.9033441873052,7.89840656716158,7.81652452399965,7.81652452399965,7.68517716248668,7.66489616432255,7.57996811225567,7.52087261921098,7.51714003633971,7.36915446990866,7.3646748219506,7.23887121169634,7.05789481620349,6.97642594575862,6.93630002829866,6.88287855239414,6.88189476439849,6.88189476439849,6.85805914432241,6.85805914432241,6.85805914432241,6.85478956228994,6.77469717087654,6.72188560813485,6.71547986471917,6.68280575023686,6.66619320593087,6.6249232360161,6.49725928797969,6.28414003913861,6.25071967863499,6.23355121049795,6.19922993310093,6.17801930272624,6.12212470139036,6.11457786418478,6.05071580148495,5.97728834332262,5.97677196594798,5.91524408203699,5.87915387792537,5.78094354572048,5.67652709254311,5.60496176109824,5.49592307444231,5.46245554470184,5.43979216927286,5.31346639730476,5.30267269294235,5.22739073717273,5.20321481754729,4.98605235478626,4.96492472927415,4.89338244867604,4.77351635082683,4.76980500484875,4.76198465620824,4.74634891575877,4.69732503393522,4.67835532804606,4.67322286196163,4.6452325989714,4.62902720504649,4.619041906627,4.61480653624423,4.54191302328264,4.50821468252027,4.43482016149737,4.37999741521644,4.34465954880998,4.33147089612528,4.29669178275714,4.27347043930626,4.26274329632875,4.20921319296836,4.17955566364838,4.06386063720351,4.05113544564082,4.0221123756736,4.00069042815554,3.97942514319486,3.94804141974232,3.78103713752851,3.63615126298071,3.63304757114669,3.6077433992531,3.55878510719273,3.55540940106017,3.54829214575959,3.53502405354172,3.52709897013137,3.49552178930941,3.4609034024342,3.39384475111214,3.37685419183116,3.37104005489981,3.29312850080358,3.29297665143737,3.25283950971886,3.24648866207416,3.2388955021035,3.21447007667134,3.20946528478047,3.16700935953876,3.101603028923,3.07588124260557,2.96220877849656,2.95498093084316,2.89412015529714,2.778769289087,2.76720770617225,2.7634345607632,2.75057955296594,2.69975672653349,2.67332930244938,2.66289936060293,2.64774493553592,2.57919024984445,2.5615944940983,2.54487774057264,2.53229255813136,2.50484365891532,2.4709028200181,2.46985721255667,2.46050205472426,2.45014042945837,2.44544201875588,2.39938480230402,2.3939898108153,2.38493310501826,2.35843620850465,2.30854165844239,2.30238885560679,2.30238885560679,2.27513400752849,2.2625180718459,2.20987067746573,2.19468872038229,2.18808997337607,2.18458117513266,2.18438774660426,2.16809506998407,2.16349314078865,2.16349314078865,2.15010773273592,2.11457004212956,2.10814248929281,2.06380848810376,2.03776437640226,2.03536881431389,1.97529438731157,1.96938727651526,1.9646402493965,1.9458772999233,1.93291193979529,1.90361076289113,1.88193720266093,1.87912433697047,1.82412921530379,1.77880702284866,1.76435618392202,1.71893773788119,1.71109692683862,1.69066920499435,1.69020144954229,1.68858531777453,1.68393631247656,1.65243220642781,1.6412925840513,1.6301419426202,1.62736524969967,1.61711154414002,1.57041630488617,1.54866260910823,1.5465552560835,1.52180777579715,1.50417518298029,1.49376733304156,1.49271950779958,1.48472361872037,1.47355135886199,1.38976359206424,1.38228275031736,1.3586987987598,1.35132956707229,1.32833784607652,1.32819147819055,1.32238247736961],"text":["GO:0046907 (1723) <br> intracellular transport <br> 3.186e-14","GO:0019083 (181) <br> viral transcription <br> 2.521e-13","GO:0006996 (4136) <br> organelle organization <br> 3.002e-13","GO:0071840 (6880) <br> cellular component organization or biogenesis <br> 6.481e-12","GO:0016032 (1011) <br> viral process <br> 6.747e-11","GO:0034605 (119) <br> cellular response to heat <br> 7.774e-11","GO:0009408 (159) <br> response to heat <br> 1.051e-10","GO:0019080 (237) <br> viral gene expression <br> 1.490e-10","GO:0071426 (130) <br> ribonucleoprotein complex export from nucleus <br> 1.913e-10","GO:0006396 (1010) <br> RNA processing <br> 1.979e-10","GO:0006406 (112) <br> mRNA export from nucleus <br> 2.195e-10","GO:0071427 (112) <br> mRNA-containing ribonucleoprotein complex export from nucleus <br> 2.195e-10","GO:0071166 (131) <br> ribonucleoprotein complex localization <br> 2.223e-10","GO:0007049 (1867) <br> cell cycle <br> 2.586e-10","GO:1900034 (79) <br> regulation of cellular response to heat <br> 3.526e-10","GO:0022402 (1388) <br> cell cycle process <br> 3.903e-10","GO:0071431 (34) <br> tRNA-containing ribonucleoprotein complex export from nucleus <br> 4.970e-10","GO:0006409 (34) <br> tRNA export from nucleus <br> 4.970e-10","GO:0075733 (57) <br> intracellular transport of virus <br> 1.256e-09","GO:0045184 (1866) <br> establishment of protein localization <br> 1.353e-09","GO:0006886 (995) <br> intracellular protein transport <br> 1.417e-09","GO:0051031 (37) <br> tRNA transport <br> 1.604e-09","GO:0006405 (129) <br> RNA export from nucleus <br> 1.829e-09","GO:0016043 (6661) <br> cellular component organization <br> 2.096e-09","GO:0044085 (3377) <br> cellular component biogenesis <br> 2.160e-09","GO:0097064 (38) <br> ncRNA export from nucleus <br> 2.308e-09","GO:0016071 (880) <br> mRNA metabolic process <br> 2.854e-09","GO:0051028 (151) <br> mRNA transport <br> 4.175e-09","GO:0046794 (64) <br> transport of virus <br> 6.198e-09","GO:0015031 (1754) <br> protein transport <br> 6.250e-09","GO:0006165 (135) <br> nucleoside diphosphate phosphorylation <br> 8.839e-09","GO:0044766 (66) <br> multi-organism transport <br> 9.421e-09","GO:1902579 (66) <br> multi-organism localization <br> 9.421e-09","GO:0006090 (152) <br> pyruvate metabolic process <br> 1.007e-08","GO:0046939 (137) <br> nucleotide phosphorylation <br> 1.126e-08","GO:0051168 (202) <br> nuclear export <br> 1.176e-08","GO:0009266 (229) <br> response to temperature stimulus <br> 1.249e-08","GO:0000278 (1098) <br> mitotic cell cycle <br> 1.264e-08","GO:0050657 (183) <br> nucleic acid transport <br> 1.526e-08","GO:0050658 (183) <br> RNA transport <br> 1.526e-08","GO:0051236 (186) <br> establishment of RNA localization <br> 2.065e-08","GO:0009056 (2779) <br> catabolic process <br> 2.163e-08","GO:0051649 (2778) <br> establishment of localization in cell <br> 2.630e-08","GO:0046031 (125) <br> ADP metabolic process <br> 3.014e-08","GO:0042274 (74) <br> ribosomal small subunit biogenesis <br> 3.040e-08","GO:0009894 (1081) <br> regulation of catabolic process <br> 4.274e-08","GO:0051641 (3519) <br> cellular localization <br> 4.318e-08","GO:0031503 (289) <br> protein-containing complex localization <br> 5.769e-08","GO:0006913 (353) <br> nucleocytoplasmic transport <br> 8.752e-08","GO:0051169 (356) <br> nuclear transport <br> 1.056e-07","GO:0006096 (116) <br> glycolytic process <br> 1.158e-07","GO:1903047 (956) <br> mitotic cell cycle process <br> 1.310e-07","GO:0006757 (117) <br> ATP generation from ADP <br> 1.313e-07","GO:0060964 (117) <br> regulation of gene silencing by miRNA <br> 1.313e-07","GO:0009135 (138) <br> purine nucleoside diphosphate metabolic process <br> 1.387e-07","GO:0060968 (138) <br> regulation of gene silencing <br> 1.387e-07","GO:0009179 (138) <br> purine ribonucleoside diphosphate metabolic process <br> 1.387e-07","GO:0009132 (160) <br> nucleoside diphosphate metabolic process <br> 1.397e-07","GO:0060147 (119) <br> regulation of posttranscriptional gene silencing <br> 1.680e-07","GO:0060966 (120) <br> regulation of gene silencing by RNA <br> 1.897e-07","GO:0009185 (141) <br> ribonucleoside diphosphate metabolic process <br> 1.925e-07","GO:1901575 (2289) <br> organic substance catabolic process <br> 2.076e-07","GO:0071705 (2216) <br> nitrogen compound transport <br> 2.157e-07","GO:0022607 (3104) <br> cellular component assembly <br> 2.372e-07","GO:0007017 (927) <br> microtubule-based process <br> 3.182e-07","GO:0006403 (222) <br> RNA localization <br> 5.198e-07","GO:0008104 (2670) <br> protein localization <br> 5.614e-07","GO:0006139 (5752) <br> nucleobase-containing compound metabolic process <br> 5.840e-07","GO:0034641 (6576) <br> cellular nitrogen compound metabolic process <br> 6.321e-07","GO:0006402 (388) <br> mRNA catabolic process <br> 6.637e-07","GO:0043470 (92) <br> regulation of carbohydrate catabolic process <br> 7.549e-07","GO:0019058 (386) <br> viral life cycle <br> 7.681e-07","GO:0010629 (1470) <br> negative regulation of gene expression <br> 8.898e-07","GO:0033036 (3148) <br> macromolecule localization <br> 1.054e-06","GO:0006401 (431) <br> RNA catabolic process <br> 1.055e-06","GO:0034613 (1842) <br> cellular protein localization <br> 1.216e-06","GO:0046483 (5929) <br> heterocycle metabolic process <br> 1.321e-06","GO:0070727 (1856) <br> cellular macromolecule localization <br> 1.656e-06","GO:0006110 (81) <br> regulation of glycolytic process <br> 2.106e-06","GO:0007010 (1473) <br> cytoskeleton organization <br> 2.483e-06","GO:0015931 (246) <br> nucleobase-containing compound transport <br> 3.192e-06","GO:0042254 (335) <br> ribosome biogenesis <br> 3.448e-06","GO:0006412 (804) <br> translation <br> 3.633e-06","GO:0006725 (5973) <br> cellular aromatic compound metabolic process <br> 4.859e-06","GO:0016052 (201) <br> carbohydrate catabolic process <br> 4.981e-06","GO:0072594 (523) <br> establishment of protein localization to organelle <br> 5.924e-06","GO:0016925 (78) <br> protein sumoylation <br> 6.263e-06","GO:0043043 (834) <br> peptide biosynthetic process <br> 1.033e-05","GO:0022613 (473) <br> ribonucleoprotein complex biogenesis <br> 1.084e-05","GO:1901360 (6227) <br> organic cyclic compound metabolic process <br> 1.278e-05","GO:0010564 (815) <br> regulation of cell cycle process <br> 1.685e-05","GO:0010467 (6192) <br> gene expression <br> 1.699e-05","GO:0051640 (657) <br> organelle localization <br> 1.730e-05","GO:0042255 (62) <br> ribosome assembly <br> 1.793e-05","GO:0043467 (167) <br> regulation of generation of precursor metabolites and energy <br> 2.008e-05","GO:0016072 (275) <br> rRNA metabolic process <br> 2.097e-05","GO:1903578 (120) <br> regulation of ATP metabolic process <br> 2.122e-05","GO:0034470 (439) <br> ncRNA processing <br> 2.263e-05","GO:1900542 (121) <br> regulation of purine nucleotide metabolic process <br> 2.349e-05","GO:0051656 (443) <br> establishment of organelle localization <br> 2.404e-05","GO:0043933 (2017) <br> protein-containing complex subunit organization <br> 2.428e-05","GO:0006140 (123) <br> regulation of nucleotide metabolic process <br> 2.871e-05","GO:0007051 (256) <br> spindle organization <br> 3.103e-05","GO:0034660 (535) <br> ncRNA metabolic process <br> 3.674e-05","GO:0045104 (50) <br> intermediate filament cytoskeleton organization <br> 4.169e-05","GO:0045103 (51) <br> intermediate filament-based process <br> 4.522e-05","GO:1901990 (453) <br> regulation of mitotic cell cycle phase transition <br> 4.662e-05","GO:0044772 (588) <br> mitotic cell cycle phase transition <br> 5.050e-05","GO:0010608 (928) <br> posttranscriptional regulation of gene expression <br> 5.328e-05","GO:0071702 (2657) <br> organic substance transport <br> 5.461e-05","GO:1901987 (543) <br> regulation of cell cycle phase transition <br> 6.177e-05","GO:0006364 (265) <br> rRNA processing <br> 6.614e-05","GO:0033365 (974) <br> protein localization to organelle <br> 8.633e-05","GO:0090304 (5234) <br> nucleic acid metabolic process <br> 8.889e-05","GO:0000226 (663) <br> microtubule cytoskeleton organization <br> 9.504e-05","GO:0009057 (1479) <br> macromolecule catabolic process <br> 9.984e-05","GO:0000956 (214) <br> nuclear-transcribed mRNA catabolic process <br> 1.049e-04","GO:0044248 (2381) <br> cellular catabolic process <br> 1.127e-04","GO:0043604 (975) <br> amide biosynthetic process <br> 1.656e-04","GO:0032787 (663) <br> monocarboxylic acid metabolic process <br> 2.311e-04","GO:0062012 (430) <br> regulation of small molecule metabolic process <br> 2.328e-04","GO:0006091 (545) <br> generation of precursor metabolites and energy <br> 2.467e-04","GO:0000028 (19) <br> ribosomal small subunit assembly <br> 2.762e-04","GO:0044770 (681) <br> cell cycle phase transition <br> 2.783e-04","GO:0044265 (1244) <br> cellular macromolecule catabolic process <br> 2.829e-04","GO:0006518 (998) <br> peptide metabolic process <br> 2.917e-04","GO:0043066 (928) <br> negative regulation of apoptotic process <br> 2.971e-04","GO:0009628 (1264) <br> response to abiotic stimulus <br> 3.195e-04","GO:0043069 (952) <br> negative regulation of programmed cell death <br> 3.460e-04","GO:0034655 (573) <br> nucleobase-containing compound catabolic process <br> 4.038e-04","GO:0000184 (123) <br> nuclear-transcribed mRNA catabolic process, nonsense-mediated decay <br> 4.199e-04","GO:0006999 (14) <br> nuclear pore organization <br> 4.256e-04","GO:0034063 (26) <br> stress granule assembly <br> 5.092e-04","GO:0051170 (174) <br> import into nucleus <br> 5.094e-04","GO:0016070 (4714) <br> RNA metabolic process <br> 5.587e-04","GO:0071826 (203) <br> ribonucleoprotein complex subunit organization <br> 5.669e-04","GO:0070925 (921) <br> organelle assembly <br> 5.769e-04","GO:0060548 (1047) <br> negative regulation of cell death <br> 6.103e-04","GO:0051726 (1120) <br> regulation of cell cycle <br> 6.174e-04","GO:0048193 (415) <br> Golgi vesicle transport <br> 6.808e-04","GO:0046034 (317) <br> ATP metabolic process <br> 7.914e-04","GO:0019752 (1033) <br> carboxylic acid metabolic process <br> 8.397e-04","GO:0071763 (74) <br> nuclear membrane organization <br> 1.091e-03","GO:0065003 (1724) <br> protein-containing complex assembly <br> 1.109e-03","GO:0006614 (96) <br> SRP-dependent cotranslational protein targeting to membrane <br> 1.276e-03","GO:0046700 (617) <br> heterocycle catabolic process <br> 1.664e-03","GO:0033554 (2142) <br> cellular response to stress <br> 1.709e-03","GO:0007346 (612) <br> regulation of mitotic cell cycle <br> 1.724e-03","GO:0043436 (1066) <br> oxoacid metabolic process <br> 1.776e-03","GO:0044270 (623) <br> cellular nitrogen compound catabolic process <br> 1.996e-03","GO:0051234 (5364) <br> establishment of localization <br> 2.122e-03","GO:0022618 (196) <br> ribonucleoprotein complex assembly <br> 2.173e-03","GO:0006613 (102) <br> cotranslational protein targeting to membrane <br> 2.250e-03","GO:0006888 (208) <br> endoplasmic reticulum to Golgi vesicle-mediated transport <br> 2.635e-03","GO:0090068 (237) <br> positive regulation of cell cycle process <br> 2.744e-03","GO:0051292 (9) <br> nuclear pore complex assembly <br> 2.852e-03","GO:0019439 (636) <br> aromatic compound catabolic process <br> 2.936e-03","GO:0007052 (194) <br> mitotic spindle organization <br> 3.127e-03","GO:0006109 (215) <br> regulation of carbohydrate metabolic process <br> 3.381e-03","GO:0044237 (10941) <br> cellular metabolic process <br> 3.390e-03","GO:0044267 (5280) <br> cellular protein metabolic process <br> 3.463e-03","GO:0006082 (1098) <br> organic acid metabolic process <br> 3.547e-03","GO:0009150 (416) <br> purine ribonucleotide metabolic process <br> 3.586e-03","GO:0035973 (31) <br> aggrephagy <br> 3.987e-03","GO:0006998 (85) <br> nuclear envelope organization <br> 4.037e-03","GO:0072521 (468) <br> purine-containing compound metabolic process <br> 4.122e-03","GO:0072331 (290) <br> signal transduction by p53 class mediator <br> 4.381e-03","GO:0045047 (111) <br> protein targeting to ER <br> 4.914e-03","GO:0101024 (51) <br> mitotic nuclear membrane organization <br> 4.984e-03","GO:0007084 (51) <br> mitotic nuclear membrane reassembly <br> 4.984e-03","GO:0010605 (3262) <br> negative regulation of macromolecule metabolic process <br> 5.307e-03","GO:0043603 (1284) <br> cellular amide metabolic process <br> 5.464e-03","GO:0009259 (433) <br> ribonucleotide metabolic process <br> 6.168e-03","GO:0051276 (1270) <br> chromosome organization <br> 6.387e-03","GO:1901361 (664) <br> organic cyclic compound catabolic process <br> 6.485e-03","GO:0042981 (1560) <br> regulation of apoptotic process <br> 6.538e-03","GO:0031329 (913) <br> regulation of cellular catabolic process <br> 6.541e-03","GO:0072599 (115) <br> establishment of protein localization to endoplasmic reticulum <br> 6.791e-03","GO:0048207 (65) <br> vesicle targeting, rough ER to cis-Golgi <br> 6.863e-03","GO:0048208 (65) <br> COPII vesicle coating <br> 6.863e-03","GO:0006413 (203) <br> translational initiation <br> 7.078e-03","GO:0043067 (1603) <br> regulation of programmed cell death <br> 7.681e-03","GO:0031468 (54) <br> nuclear membrane reassembly <br> 7.796e-03","GO:0019693 (444) <br> ribose phosphate metabolic process <br> 8.634e-03","GO:0006163 (446) <br> purine nucleotide metabolic process <br> 9.167e-03","GO:0055086 (628) <br> nucleobase-containing small molecule metabolic process <br> 9.218e-03","GO:1902850 (214) <br> microtubule cytoskeleton organization involved in mitosis <br> 1.059e-02","GO:0002181 (149) <br> cytoplasmic translation <br> 1.073e-02","GO:0006901 (69) <br> vesicle coating <br> 1.085e-02","GO:0032964 (56) <br> collagen biosynthetic process <br> 1.133e-02","GO:0000280 (495) <br> nuclear division <br> 1.167e-02","GO:0010941 (1740) <br> regulation of cell death <br> 1.249e-02","GO:0010389 (204) <br> regulation of G2/M transition of mitotic cell cycle <br> 1.312e-02","GO:0009892 (3498) <br> negative regulation of metabolic process <br> 1.321e-02","GO:0090114 (72) <br> COPII-coated vesicle budding <br> 1.499e-02","GO:0048199 (73) <br> vesicle targeting, to, from or within Golgi <br> 1.664e-02","GO:0070933 (11) <br> histone H4 deacetylation <br> 1.720e-02","GO:0017038 (219) <br> protein import <br> 1.910e-02","GO:0006606 (154) <br> protein import into nucleus <br> 1.945e-02","GO:1902749 (213) <br> regulation of cell cycle G2/M phase transition <br> 2.039e-02","GO:0044238 (10642) <br> primary metabolic process <br> 2.041e-02","GO:0044281 (1924) <br> small molecule metabolic process <br> 2.048e-02","GO:0140014 (346) <br> mitotic nuclear division <br> 2.070e-02","GO:0007417 (1052) <br> central nervous system development <br> 2.226e-02","GO:0002698 (107) <br> negative regulation of immune effector process <br> 2.284e-02","GO:0051704 (1155) <br> multi-organism process <br> 2.343e-02","GO:1903311 (384) <br> regulation of mRNA metabolic process <br> 2.358e-02","GO:0006605 (400) <br> protein targeting <br> 2.415e-02","GO:0007059 (353) <br> chromosome segregation <br> 2.689e-02","GO:0006915 (1998) <br> apoptotic process <br> 2.827e-02","GO:0034504 (294) <br> protein localization to nucleus <br> 2.841e-02","GO:0071225 (9) <br> cellular response to muramyl dipeptide <br> 3.007e-02","GO:0010033 (3457) <br> response to organic substance <br> 3.132e-02","GO:0016321 (5) <br> female meiosis chromosome segregation <br> 3.208e-02","GO:0051645 (14) <br> Golgi localization <br> 3.216e-02","GO:0051128 (2439) <br> regulation of cellular component organization <br> 3.275e-02","GO:0000086 (262) <br> G2/M transition of mitotic cell cycle <br> 3.361e-02","GO:0008380 (459) <br> RNA splicing <br> 4.076e-02","GO:0016441 (424) <br> posttranscriptional gene silencing <br> 4.147e-02","GO:1901796 (202) <br> regulation of signal transduction by p53 class mediator <br> 4.378e-02","GO:0012501 (2158) <br> programmed cell death <br> 4.453e-02","GO:0006417 (504) <br> regulation of translation <br> 4.695e-02","GO:0097191 (226) <br> extrinsic apoptotic signaling pathway <br> 4.697e-02","GO:0006810 (5214) <br> transport <br> 4.760e-02"],"key":["GO:0046907","GO:0019083","GO:0006996","GO:0071840","GO:0016032","GO:0034605","GO:0009408","GO:0019080","GO:0071426","GO:0006396","GO:0006406","GO:0071427","GO:0071166","GO:0007049","GO:1900034","GO:0022402","GO:0071431","GO:0006409","GO:0075733","GO:0045184","GO:0006886","GO:0051031","GO:0006405","GO:0016043","GO:0044085","GO:0097064","GO:0016071","GO:0051028","GO:0046794","GO:0015031","GO:0006165","GO:0044766","GO:1902579","GO:0006090","GO:0046939","GO:0051168","GO:0009266","GO:0000278","GO:0050657","GO:0050658","GO:0051236","GO:0009056","GO:0051649","GO:0046031","GO:0042274","GO:0009894","GO:0051641","GO:0031503","GO:0006913","GO:0051169","GO:0006096","GO:1903047","GO:0006757","GO:0060964","GO:0009135","GO:0060968","GO:0009179","GO:0009132","GO:0060147","GO:0060966","GO:0009185","GO:1901575","GO:0071705","GO:0022607","GO:0007017","GO:0006403","GO:0008104","GO:0006139","GO:0034641","GO:0006402","GO:0043470","GO:0019058","GO:0010629","GO:0033036","GO:0006401","GO:0034613","GO:0046483","GO:0070727","GO:0006110","GO:0007010","GO:0015931","GO:0042254","GO:0006412","GO:0006725","GO:0016052","GO:0072594","GO:0016925","GO:0043043","GO:0022613","GO:1901360","GO:0010564","GO:0010467","GO:0051640","GO:0042255","GO:0043467","GO:0016072","GO:1903578","GO:0034470","GO:1900542","GO:0051656","GO:0043933","GO:0006140","GO:0007051","GO:0034660","GO:0045104","GO:0045103","GO:1901990","GO:0044772","GO:0010608","GO:0071702","GO:1901987","GO:0006364","GO:0033365","GO:0090304","GO:0000226","GO:0009057","GO:0000956","GO:0044248","GO:0043604","GO:0032787","GO:0062012","GO:0006091","GO:0000028","GO:0044770","GO:0044265","GO:0006518","GO:0043066","GO:0009628","GO:0043069","GO:0034655","GO:0000184","GO:0006999","GO:0034063","GO:0051170","GO:0016070","GO:0071826","GO:0070925","GO:0060548","GO:0051726","GO:0048193","GO:0046034","GO:0019752","GO:0071763","GO:0065003","GO:0006614","GO:0046700","GO:0033554","GO:0007346","GO:0043436","GO:0044270","GO:0051234","GO:0022618","GO:0006613","GO:0006888","GO:0090068","GO:0051292","GO:0019439","GO:0007052","GO:0006109","GO:0044237","GO:0044267","GO:0006082","GO:0009150","GO:0035973","GO:0006998","GO:0072521","GO:0072331","GO:0045047","GO:0101024","GO:0007084","GO:0010605","GO:0043603","GO:0009259","GO:0051276","GO:1901361","GO:0042981","GO:0031329","GO:0072599","GO:0048207","GO:0048208","GO:0006413","GO:0043067","GO:0031468","GO:0019693","GO:0006163","GO:0055086","GO:1902850","GO:0002181","GO:0006901","GO:0032964","GO:0000280","GO:0010941","GO:0010389","GO:0009892","GO:0090114","GO:0048199","GO:0070933","GO:0017038","GO:0006606","GO:1902749","GO:0044238","GO:0044281","GO:0140014","GO:0007417","GO:0002698","GO:0051704","GO:1903311","GO:0006605","GO:0007059","GO:0006915","GO:0034504","GO:0071225","GO:0010033","GO:0016321","GO:0051645","GO:0051128","GO:0000086","GO:0008380","GO:0016441","GO:1901796","GO:0012501","GO:0006417","GO:0097191","GO:0006810"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,153,0,1)","opacity":0.8,"size":[20.1088323582115,17.1117076782815,21.1344462088703,21.7035374999992,19.451573873278,16.4760514553463,16.918563822608,17.5047579060072,16.6126778615783,19.4503282144806,16.3815087539172,16.3815087539172,16.624451291171,20.2055094409634,15.8227421236023,19.8455306846866,14.3519997480295,14.3519997480295,15.2756954716879,20.2048660232527,19.4314817950327,14.5086078145015,16.6008025798044,21.6679004416094,20.9024525251713,14.5575278577922,19.2759171540558,16.840827913987,15.4727616697066,20.1303596037508,16.6705591144528,15.5245580341656,15.5245580341656,16.8507929922937,16.6930432655251,17.2731463069687,17.4553172949697,19.5551369029075,17.1279572175344,17.1279572175344,17.1519653138816,20.6764330190036,20.6760128426016,16.552248256339,15.7151677983179,19.5356134332147,20.9498382841373,17.7869538601274,18.0658885682371,18.0775688230189,16.4363189409718,19.3810073827861,16.4496900554146,16.4496900554146,16.7041480940405,16.7041480940405,16.7041480940405,16.9279733014706,16.4760514553463,16.4890463101257,16.7369303913696,20.4484382631651,20.4100380870974,20.8050634202662,19.3420102061774,17.4104643922402,20.6296556443227,21.5053658734699,21.6537323834277,18.195832112632,16.0697362528688,18.1887589046007,19.915852066474,20.8213641129297,18.3389367682336,20.1893119996143,21.5390620738563,20.1984114205898,15.8636236908885,19.9183441742083,17.5582210891217,17.9934386332075,19.1605106996624,21.5472727056056,17.265889291748,18.5987513048536,15.801858092204,19.2074226898582,18.4643827493734,21.5934484800124,19.1779286245093,21.5872057726815,18.8993355559252,15.4190791173213,16.9920586807013,17.7168500269786,16.4890463101257,18.3638334737416,16.5019202141693,18.3760965631462,20.2980535736863,16.5273136649716,17.6151487432703,18.6289175161382,15.0486221338682,15.0832328994516,18.4062325191928,18.7538745275872,19.3433767765611,20.6239407817799,18.6486216054544,17.6643246110046,19.4045745794367,21.4000311246093,18.9111915403104,19.9233120507587,17.3572475673179,20.495006256239,19.4058700354974,18.9111915403104,18.3357892079078,18.6534982341877,13.2039079443259,18.9460723109363,19.710477230295,19.4352755293199,19.3433767765611,19.7302139461961,19.3757050852631,18.7197942104249,16.5273136649716,12.5414277899272,13.83902557929,17.0532216312128,21.2824953778867,17.2803636129636,19.3337771581941,19.4955523947923,19.5799237913336,18.2875917936538,17.9165837938067,19.4786465831394,15.7151677983179,20.1095332573674,16.1378571469232,18.8171599959616,20.3697031428378,18.8064825080221,19.5181096039992,18.8298494843551,21.4274758345104,17.2289935746564,16.2342495236679,17.3158688224472,17.5047579060072,11.4827422948031,18.8568934935132,17.2139420304112,17.3640190253029,22.2070086720384,21.4098243887321,19.5551369029075,18.2908638032579,14.1782205386673,15.9420548318458,18.4501003928185,17.7918175061017,16.3674620265117,15.0832328994516,15.0832328994516,20.8624910457037,19.7496169904031,18.3452080104898,19.73606939506,18.9131562034715,19.9883327988908,19.3227090673339,16.4228177328561,15.498887690643,15.498887690643,17.2803636129636,20.0213907698048,15.1825444005545,18.3791434356316,18.3852147514211,18.8403229872141,17.3572475673179,16.820675004284,15.5989806420055,15.2452846314144,18.5253260577865,20.1206886372213,17.2875416251238,20.9429604487878,15.6697988614665,15.692660304218,11.980531463383,17.3907605242587,16.8705055778228,17.3504409902673,22.1773231312919,20.2415855450276,18.0382058611615,19.5015310967694,16.309816295931,19.6182944931246,18.181645451538,18.2374501939285,18.0658885682371,20.2867472222397,17.8110892091597,11.4827422948031,20.9294044050122,9.79200637188604,12.5414277899272,20.5233846899778,17.6481399798121,18.4239673394241,18.3167342125249,17.2731463069687,20.3785494211894,18.5494106764228,17.4362828639663,21.395744596271],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,153,0,1)"}},"hoveron":"points","set":"SharedDatab1969279","name":"GO:BP","legendgroup":"GO:BP","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null},{"x":[55.6531310804885,54.9271932939242,62.1436393549857,62.1280277896833,62.1475422463113,64.4346365631215,59.4623530142884,59.4857703622421,62.1319306810089,59.9463115386647,55.3213853178112,54.9701250985059,55.0364742510414,62.120222007032,62.1397364636601,69.2781246982094,71.15541542583,55.0013482291108,68.4546146285047,62.1241248983576,66.1441029637408,57.4523639815969,62.3582983778945,55.618005058558,54.9740279898315,68.5795071509243,68.5756042595987,55.738994689652,68.4585175198303,55.2940650785319,59.4311298836835,55.6023934932555,69.434240351234,58.5412706614434,57.7802068529485,55.6921599937446,59.4389356663347,59.466255905614,62.9281205114343,54.2519930945928,54.2168670726623,55.3955402529979,67.9160156255698,55.5945877106043,57.0893950883147,54.2207699639879,56.9996285878256,58.1822046594868,55.9653623865377,55.0794060556231,57.8270415488559,54.2637017685697,57.1635500235014,54.2129641813367,61.148402066954,60.4927163242507,57.9441282886243,63.7438247984877,68.653662086111,55.8131496248387,64.6102666727742,57.9558369626012,63.1544882083199,63.3223125353214,61.7299328744706,55.3252882091369,55.789732276885,53.8499952880545,57.7841097442741,55.5282385580688,57.3860148290614,57.9519340712755,58.7559296843522,57.9831572018805,59.4896732535677,61.4801478296312,58.2095248987661,68.8839326743223,55.9185276906303,64.5244030636107,70.4841181178243,54.3573711603844,69.6488993741428,62.1358335723345,64.4307336717959,57.0113372618024,61.9875237019611,57.0932979796403,58.1939133334637,58.7403181190497,68.602924498878,70.9563679682237,55.7936351682106],"y":[17,17,17,17,17,17,17,17,17,17,17,15.3653468480873,15.170510266242,13.9614929884828,13.6460337819742,12.831108503427,11.3131571694533,10.148485050537,9.95309887031291,9.62181546662944,8.73840344719949,8.59153410393285,8.59153410393285,7.76019258848373,7.23040100832095,6.53542610742682,5.90245824459492,5.89105387716817,5.82259933220556,5.48442820208753,5.32490328497796,5.00274061275218,4.70693986131641,4.60244574033945,4.55530796252002,4.49457201012733,4.46001695128261,4.46001695128261,4.38954547894386,4.35162815501841,4.32733214084232,4.19987288172751,4.19922903533458,4.12793682150937,4.04763246379676,3.94987225334824,3.80651222497838,3.6283914020003,3.3880396137608,3.36734781717805,3.28197555582962,3.18641169536777,3.02532361601942,3.01156869766758,2.86159394011512,2.83199041113413,2.81870659134327,2.81870659134327,2.80828111511268,2.78147551730291,2.7578710544319,2.66806976296643,2.60933257486959,2.48676279574733,2.45357868326812,2.44591923702391,2.43161587932689,2.30898034624041,2.16714492406169,2.09788415100554,2.0483120753215,2.03933412582829,1.98838317627722,1.97594468055336,1.9092819291668,1.89658745524788,1.8829625444984,1.82999400528474,1.80707853786521,1.78443265535821,1.73088022156764,1.65096371261521,1.58226210676001,1.57762987815928,1.57762987815928,1.53148004509131,1.51020755488707,1.48732301750237,1.45961939384528,1.43432893282632,1.3876050222299,1.38351520623863,1.30929626965543],"text":["GO:0005829 (5361) <br> cytosol <br> 1.130e-25","GO:0005622 (14808) <br> intracellular anatomical structure <br> 2.077e-22","GO:0043232 (5094) <br> intracellular non-membrane-bounded organelle <br> 5.420e-22","GO:0043228 (5102) <br> non-membrane-bounded organelle <br> 6.528e-22","GO:0043233 (5579) <br> organelle lumen <br> 1.783e-21","GO:0070013 (5579) <br> intracellular organelle lumen <br> 1.783e-21","GO:0031974 (5579) <br> membrane-enclosed lumen <br> 1.783e-21","GO:0031981 (4453) <br> nuclear lumen <br> 1.150e-20","GO:0043229 (13117) <br> intracellular organelle <br> 2.176e-19","GO:0032991 (5541) <br> protein-containing complex <br> 2.476e-19","GO:0005737 (11951) <br> cytoplasm <br> 1.317e-17","GO:0005634 (7607) <br> nucleus <br> 4.312e-16","GO:0005654 (4112) <br> nucleoplasm <br> 6.753e-16","GO:0043226 (14027) <br> organelle <br> 1.093e-14","GO:0043231 (12046) <br> intracellular membrane-bounded organelle <br> 2.259e-14","GO:0140513 (1236) <br> nuclear protein-containing complex <br> 1.475e-13","GO:1990904 (694) <br> ribonucleoprotein complex <br> 4.862e-12","GO:0005643 (85) <br> nuclear pore <br> 7.104e-11","GO:0099080 (1325) <br> supramolecular complex <br> 1.114e-10","GO:0043227 (13201) <br> membrane-bounded organelle <br> 2.389e-10","GO:0072686 (161) <br> mitotic spindle <br> 1.826e-09","GO:0018995 (58) <br> host cellular component <br> 2.561e-09","GO:0043657 (58) <br> host cell <br> 2.561e-09","GO:0005819 (390) <br> spindle <br> 1.737e-08","GO:0005635 (471) <br> nuclear envelope <br> 5.883e-08","GO:0099513 (766) <br> polymeric cytoskeletal fiber <br> 2.915e-07","GO:0099512 (997) <br> supramolecular fiber <br> 1.252e-06","GO:0005856 (2339) <br> cytoskeleton <br> 1.285e-06","GO:0099081 (1005) <br> supramolecular polymer <br> 1.505e-06","GO:0005730 (955) <br> nucleolus <br> 3.278e-06","GO:0031965 (301) <br> nuclear membrane <br> 4.733e-06","GO:0005815 (815) <br> microtubule organizing center <br> 9.937e-06","GO:1902494 (1377) <br> catalytic complex <br> 1.964e-05","GO:0031080 (10) <br> nuclear pore outer ring <br> 2.498e-05","GO:0022626 (106) <br> cytosolic ribosome <br> 2.784e-05","GO:0005840 (247) <br> ribosome <br> 3.202e-05","GO:0031967 (1244) <br> organelle envelope <br> 3.467e-05","GO:0031975 (1244) <br> envelope <br> 3.467e-05","GO:0044391 (191) <br> ribosomal subunit <br> 4.078e-05","GO:0000793 (239) <br> condensed chromosome <br> 4.450e-05","GO:0000776 (133) <br> kinetochore <br> 4.706e-05","GO:0005759 (482) <br> mitochondrial matrix <br> 6.311e-05","GO:0098687 (348) <br> chromosomal region <br> 6.321e-05","GO:0005813 (620) <br> centrosome <br> 7.448e-05","GO:0015630 (1313) <br> microtubule cytoskeleton <br> 8.961e-05","GO:0000779 (144) <br> condensed chromosome, centromeric region <br> 1.122e-04","GO:0010494 (77) <br> cytoplasmic stress granule <br> 1.561e-04","GO:0030659 (789) <br> cytoplasmic vesicle membrane <br> 2.353e-04","GO:0005925 (420) <br> focal adhesion <br> 4.092e-04","GO:0005667 (431) <br> transcription regulator complex <br> 4.292e-04","GO:0030055 (427) <br> cell-substrate junction <br> 5.224e-04","GO:0000796 (8) <br> condensin complex <br> 6.510e-04","GO:0016234 (77) <br> inclusion body <br> 9.434e-04","GO:0000775 (200) <br> chromosome, centromeric region <br> 9.737e-04","GO:0035770 (252) <br> ribonucleoprotein granule <br> 1.375e-03","GO:0034399 (132) <br> nuclear periphery <br> 1.472e-03","GO:0030117 (97) <br> membrane coat <br> 1.518e-03","GO:0048475 (97) <br> coated membrane <br> 1.518e-03","GO:0101003 (60) <br> ficolin-1-rich granule membrane <br> 1.555e-03","GO:0005882 (219) <br> intermediate filament <br> 1.654e-03","GO:0070161 (838) <br> anchoring junction <br> 1.746e-03","GO:0030120 (55) <br> vesicle coat <br> 2.147e-03","GO:0044615 (12) <br> nuclear pore nuclear basket <br> 2.458e-03","GO:0045111 (260) <br> intermediate filament cytoskeleton <br> 3.260e-03","GO:0042405 (13) <br> nuclear inclusion body <br> 3.519e-03","GO:0005739 (1678) <br> mitochondrion <br> 3.582e-03","GO:0005874 (435) <br> microtubule <br> 3.702e-03","GO:0000118 (78) <br> histone deacetylase complex <br> 4.909e-03","GO:0022627 (46) <br> cytosolic small ribosomal subunit <br> 6.805e-03","GO:0005794 (1593) <br> Golgi apparatus <br> 7.982e-03","GO:0017053 (62) <br> transcription repressor complex <br> 8.947e-03","GO:0030119 (41) <br> AP-type membrane coat adaptor complex <br> 9.134e-03","GO:0031256 (179) <br> leading edge membrane <br> 1.027e-02","GO:0030127 (15) <br> COPII vesicle coat <br> 1.057e-02","GO:0031982 (4058) <br> vesicle <br> 1.232e-02","GO:0036464 (238) <br> cytoplasmic ribonucleoprotein granule <br> 1.269e-02","GO:0030667 (308) <br> secretory granule membrane <br> 1.309e-02","GO:0120025 (2234) <br> plasma membrane bounded cell projection <br> 1.479e-02","GO:0005912 (171) <br> adherens junction <br> 1.559e-02","GO:0070062 (2178) <br> extracellular exosome <br> 1.643e-02","GO:1990391 (36) <br> DNA repair complex <br> 1.858e-02","GO:0000922 (168) <br> spindle pole <br> 2.234e-02","GO:1903561 (2263) <br> extracellular vesicle <br> 2.617e-02","GO:0043230 (2265) <br> extracellular organelle <br> 2.645e-02","GO:0065010 (2265) <br> extracellular membrane-bounded organelle <br> 2.645e-02","GO:0012506 (1183) <br> vesicle membrane <br> 2.941e-02","GO:0042995 (2337) <br> cell projection <br> 3.089e-02","GO:0015934 (119) <br> large ribosomal subunit <br> 3.256e-02","GO:0030662 (177) <br> coated vesicle membrane <br> 3.470e-02","GO:0031252 (426) <br> cell leading edge <br> 3.679e-02","GO:0099568 (270) <br> cytoplasmic region <br> 4.096e-02","GO:1990723 (2) <br> cytoplasmic periphery of the nuclear pore complex <br> 4.135e-02","GO:0005875 (164) <br> microtubule associated complex <br> 4.906e-02"],"key":["GO:0005829","GO:0005622","GO:0043232","GO:0043228","GO:0043233","GO:0070013","GO:0031974","GO:0031981","GO:0043229","GO:0032991","GO:0005737","GO:0005634","GO:0005654","GO:0043226","GO:0043231","GO:0140513","GO:1990904","GO:0005643","GO:0099080","GO:0043227","GO:0072686","GO:0018995","GO:0043657","GO:0005819","GO:0005635","GO:0099513","GO:0099512","GO:0005856","GO:0099081","GO:0005730","GO:0031965","GO:0005815","GO:1902494","GO:0031080","GO:0022626","GO:0005840","GO:0031967","GO:0031975","GO:0044391","GO:0000793","GO:0000776","GO:0005759","GO:0098687","GO:0005813","GO:0015630","GO:0000779","GO:0010494","GO:0030659","GO:0005925","GO:0005667","GO:0030055","GO:0000796","GO:0016234","GO:0000775","GO:0035770","GO:0034399","GO:0030117","GO:0048475","GO:0101003","GO:0005882","GO:0070161","GO:0030120","GO:0044615","GO:0045111","GO:0042405","GO:0005739","GO:0005874","GO:0000118","GO:0022627","GO:0005794","GO:0017053","GO:0030119","GO:0031256","GO:0030127","GO:0031982","GO:0036464","GO:0030667","GO:0120025","GO:0005912","GO:0070062","GO:1990391","GO:0000922","GO:1903561","GO:0043230","GO:0065010","GO:0012506","GO:0042995","GO:0015934","GO:0030662","GO:0031252","GO:0099568","GO:1990723","GO:0005875"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(16,150,24,1)","opacity":0.8,"size":[21.4268505016346,22.5281903038104,21.3696524759062,21.3714121953266,21.4713489077623,21.4713489077623,21.4713489077623,21.2181834681373,22.4001723500672,21.4637267954854,22.301288321845,21.8137488730278,21.1278301730825,22.4710947059109,22.3097189832527,19.7024866025059,18.9706470582724,15.9420548318458,19.7883949594013,22.4069336180039,16.9373174877114,15.3054992444299,15.3054992444299,18.2028655123974,18.4586896731346,19.098289579982,19.434012321922,20.473990411145,19.4440798684282,19.3796840599657,17.8441305674686,19.1779286245093,19.835758359278,11.747980750738,16.2950254596216,17.5640277699944,19.710477230295,19.710477230295,17.1910389050914,17.5168301728758,16.6476991969387,18.4896805188233,18.0461774501309,18.8235214283333,19.7771805912925,16.7689423433419,15.7806675338474,19.1363383178836,18.3038663648759,18.3389367682336,18.3262982994618,11.1749781597015,15.7806675338474,17.2585921453936,17.5926771820558,16.6361245292714,16.1543870489597,16.1543870489597,15.3633750239743,17.3907605242587,19.2135392269153,15.2142427416402,12.187219027138,17.6372362975318,12.3729643352122,20.076831390311,18.3514476726151,15.801858092204,14.9017074238205,20.0137886576694,15.4190791173213,14.6957136866834,17.0952574234415,12.6954028668369,21.1127924137548,17.5108080471375,17.8763374918434,20.4196311626559,17.0273503124218,20.3895089474417,14.4581139285914,17.0009690943617,20.43491384342,20.4359600780238,20.4359600780238,19.6480987518461,20.4729795999535,16.4760514553463,17.0786016380891,18.3231184550737,17.6908552942341,3.77952755905512,16.9649668448592],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(16,150,24,1)"}},"hoveron":"points","set":"SharedDatab1969279","name":"GO:CC","legendgroup":"GO:CC","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null},{"x":[3.70531986857705,48.6250841870906,42.2096474275009,3.55312885055759,9.3285828677064,21.0511935890003,29.8158352934032,29.9914403141949,2.13267934904261,48.6133771857045,26.9281082848288,20.0170751332271,17.3908044889425,19.6931814282113,17.4454371620777,9.36370387186474,37.4331908619671,8.6066511155628,23.1116258329561,17.027887445973,28.4344091298419,2.41754971610468,26.7446985964464,39.474111436946,23.0960164977747,23.0882118301839,49.3431136054388,28.130027093803,21.6521529934875,3.57264051953444,3.74824554032613,39.4702091031506,9.64857423892681,5.91794313055231,3.56093351814833,5.96086880230138,9.51979722367957,21.6599576610782,22.8228531320987,23.7086829036479,48.082659789534,42.6232948098103,39.6341071225562,42.3384244427482,34.6820455362306,9.2622431931851,47.9655897756729,42.6193924760149,9.78515592176479,17.5898235125064],"y":[17,12.2190790222768,11.630295478418,10.2683848066171,6.82596323875444,5.97540372818186,5.8194253396361,5.73709463513506,5.7030301127981,5.69606526096216,5.65533414156662,5.54458335755354,5.5105318152808,4.76802614384039,4.69318450702982,4.63667156196377,4.63174584366418,4.60007204132727,4.1503589104539,4.13931409531995,3.78910549116513,3.64804735597259,3.53710681842762,3.11929878988201,3.10067521665886,3.00026816425954,2.67211118273463,2.46613427653845,2.37626127602752,2.37100477745212,2.26404496262156,2.26396616328202,2.04762990706109,1.99379421851959,1.905713227054,1.88467702368655,1.84017583038575,1.83380628820638,1.83380628820638,1.80449088353612,1.73743452163915,1.6773735881519,1.58930299912251,1.56839076161868,1.49560304734177,1.43609069361091,1.38963471050365,1.38783569323772,1.32256652690578,1.31251704802007],"text":["GO:0003723 (1951) <br> RNA binding <br> 4.610e-20","GO:1901363 (6210) <br> heterocyclic compound binding <br> 6.038e-13","GO:0097159 (6291) <br> organic cyclic compound binding <br> 2.343e-12","GO:0003676 (4252) <br> nucleic acid binding <br> 5.390e-11","GO:0005515 (14767) <br> protein binding <br> 1.493e-07","GO:0030554 (1577) <br> adenyl nucleotide binding <br> 1.058e-06","GO:0044877 (1304) <br> protein-containing complex binding <br> 1.516e-06","GO:0045296 (333) <br> cadherin binding <br> 1.832e-06","GO:0000166 (2176) <br> nucleotide binding <br> 1.981e-06","GO:1901265 (2177) <br> nucleoside phosphate binding <br> 2.013e-06","GO:0036094 (2516) <br> small molecule binding <br> 2.211e-06","GO:0019899 (2048) <br> enzyme binding <br> 2.854e-06","GO:0017056 (28) <br> structural constituent of nuclear pore <br> 3.087e-06","GO:0019215 (15) <br> intermediate filament binding <br> 1.706e-05","GO:0017076 (1932) <br> purine nucleotide binding <br> 2.027e-05","GO:0005524 (1500) <br> ATP binding <br> 2.308e-05","GO:0050839 (544) <br> cell adhesion molecule binding <br> 2.335e-05","GO:0005198 (701) <br> structural molecule activity <br> 2.511e-05","GO:0032559 (1564) <br> adenyl ribonucleotide binding <br> 7.074e-05","GO:0016887 (553) <br> ATPase <br> 7.256e-05","GO:0043168 (2413) <br> anion binding <br> 1.625e-04","GO:0000774 (11) <br> adenyl-nucleotide exchange factor activity <br> 2.249e-04","GO:0035639 (1846) <br> purine ribonucleoside triphosphate binding <br> 2.903e-04","GO:0060590 (43) <br> ATPase regulator activity <br> 7.598e-04","GO:0032555 (1917) <br> purine ribonucleotide binding <br> 7.931e-04","GO:0032553 (1934) <br> ribonucleotide binding <br> 9.994e-04","GO:1990254 (6) <br> keratin filament binding <br> 2.128e-03","GO:0042826 (115) <br> histone deacetylase binding <br> 3.419e-03","GO:0031072 (127) <br> heat shock protein binding <br> 4.205e-03","GO:0003682 (573) <br> chromatin binding <br> 4.256e-03","GO:0003735 (171) <br> structural constituent of ribosome <br> 5.444e-03","GO:0060589 (526) <br> nucleoside-triphosphatase regulator activity <br> 5.445e-03","GO:0008094 (185) <br> ATPase, acting on DNA <br> 8.961e-03","GO:0004386 (163) <br> helicase activity <br> 1.014e-02","GO:0003678 (76) <br> DNA helicase activity <br> 1.242e-02","GO:0004407 (22) <br> histone deacetylase activity <br> 1.304e-02","GO:0008017 (273) <br> microtubule binding <br> 1.445e-02","GO:0031078 (11) <br> histone deacetylase activity (H3-K14 specific) <br> 1.466e-02","GO:0032041 (11) <br> NAD-dependent histone deacetylase activity (H3-K14 specific) <br> 1.466e-02","GO:0033558 (23) <br> protein deacetylase activity <br> 1.569e-02","GO:0140297 (234) <br> DNA-binding transcription factor binding <br> 1.830e-02","GO:0098632 (49) <br> cell-cell adhesion mediator activity <br> 2.102e-02","GO:0061629 (196) <br> RNA polymerase II-specific DNA-binding transcription factor binding <br> 2.575e-02","GO:0097367 (2282) <br> carbohydrate derivative binding <br> 2.702e-02","GO:0048029 (71) <br> monosaccharide binding <br> 3.194e-02","GO:0005488 (17070) <br> binding <br> 3.664e-02","GO:0140097 (299) <br> catalytic activity, acting on DNA <br> 4.077e-02","GO:0098631 (58) <br> cell adhesion mediator activity <br> 4.094e-02","GO:0008139 (26) <br> nuclear localization sequence binding <br> 4.758e-02","GO:0017136 (16) <br> NAD-dependent histone deacetylase activity <br> 4.869e-02"],"key":["GO:0003723","GO:1901363","GO:0097159","GO:0003676","GO:0005515","GO:0030554","GO:0044877","GO:0045296","GO:0000166","GO:1901265","GO:0036094","GO:0019899","GO:0017056","GO:0019215","GO:0017076","GO:0005524","GO:0050839","GO:0005198","GO:0032559","GO:0016887","GO:0043168","GO:0000774","GO:0035639","GO:0060590","GO:0032555","GO:0032553","GO:1990254","GO:0042826","GO:0031072","GO:0003682","GO:0003735","GO:0060589","GO:0008094","GO:0004386","GO:0003678","GO:0004407","GO:0008017","GO:0031078","GO:0032041","GO:0033558","GO:0140297","GO:0098632","GO:0061629","GO:0097367","GO:0048029","GO:0005488","GO:0140097","GO:0098631","GO:0008139","GO:0017136"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(220,57,18,1)","opacity":0.8,"size":[20.258276019327,21.5904209757188,21.6047679255868,21.1658574902378,22.525272898967,20.001517942691,19.7686971273735,17.9851259338563,20.38841785752,20.3889635367376,20.5599632179123,20.3162578263421,13.9833131530912,12.6954028668369,20.2465569336091,19.9405304557382,18.6510623608111,18.9836734866874,19.9914490344426,18.6728117067331,20.5107536570554,11.980531463383,20.1919193878134,14.781443852525,20.2372173548861,20.2477963305085,10.3630624020686,16.4228177328561,16.5767396110151,18.7197942104249,17.0273503124218,18.6063630422794,17.1440106914419,16.9558134205769,15.7591617451593,13.5059251363754,17.7065151123898,11.980531463383,11.980531463383,13.5956642813554,17.4864368561015,15.0132022257977,17.2289935746564,20.4448133217894,15.6465726979379,22.6771653543307,17.8347771324352,15.3054992444299,13.83902557929,12.8370677538266],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(220,57,18,1)"}},"hoveron":"points","set":"SharedDatab1969279","name":"GO:MF","legendgroup":"GO:MF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null},{"x":[198.678691452357,198.827240129113],"y":[2.50578042145805,1.87387987868284],"text":["KEGG:03013 (180) <br> RNA transport <br> 3.120e-03","KEGG:04110 (124) <br> Cell cycle <br> 1.337e-02"],"key":["KEGG:03013","KEGG:04110"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(221,68,119,1)","opacity":0.8,"size":[17.1035079372937,16.5398373229612],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(221,68,119,1)"}},"hoveron":"points","set":"SharedDatab1969279","name":"KEGG","legendgroup":"KEGG","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null},{"x":[2,49.9206590071537],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(220,57,18,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[53.8226750487752,71.2217645783655],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(16,150,24,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[75.123780619987,193.971385215695],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(255,153,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[197.873401257316,200.003902016042],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(221,68,119,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[180],"y":[16.2],"text":"values above this threshold are capped","hovertext":"","textfont":{"size":7.55905511811024,"color":"rgba(190,190,190,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,210],"y":[16,16],"text":"","type":"scatter","mode":"lines","line":{"width":0.755905511811024,"color":"rgba(190,190,190,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":29.2835201328352,"r":6.6417600664176,"b":58.5348701653872,"l":61.0377750103778},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,210],"tickmode":"array","ticktext":["GO:MF","GO:CC","GO:BP","KEGG"],"tickvals":[25.9603295035768,62.5222198135703,134.547582917841,198.938651636679],"categoryorder":"array","categoryarray":["GO:MF","GO:CC","GO:BP","KEGG"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-45,"showline":true,"linecolor":"rgba(190,190,190,1)","linewidth":0.132835201328352,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1,18.5],"tickmode":"array","ticktext":["0","2","4","6","8","10","12","14",">16"],"tickvals":[0,2,4,6,8,10,12,14,16],"categoryorder":"array","categoryarray":["0","2","4","6","8","10","12","14",">16"],"nticks":null,"ticks":"outside","tickcolor":"rgba(190,190,190,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(190,190,190,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"annotations":[{"text":"-log10(p-adj)","x":-0.00905891102808911,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis"},{"text":"query_1","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(169,169,169,1)","family":"","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":24.9730178497302,"yanchor":1,"ysizemode":"pixel"}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative","dragmode":"zoom"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"8347d8127e7":{"x":{},"y":{},"text":{},"colour":{},"size":{},"alpha":{},"type":"scatter"},"8343d55628c":{"x":{},"xend":{},"y":{},"yend":{}},"83445201cf2":{"x":{},"xend":{},"y":{},"yend":{}},"83445ff72b7":{"x":{},"xend":{},"y":{},"yend":{}},"83438fdcad":{"x":{},"xend":{},"y":{},"yend":{}},"834368d2d34":{"x":{},"y":{}},"8344b1a3434":{"yintercept":{}}},"cur_data":"8347d8127e7","visdat":{"8347d8127e7":["function (y) ","x"],"8343d55628c":["function (y) ","x"],"83445201cf2":["function (y) ","x"],"83445ff72b7":["function (y) ","x"],"83438fdcad":["function (y) ","x"],"834368d2d34":["function (y) ","x"],"8344b1a3434":["function (y) ","x"]},"highlight":{"on":"plotly_click","off":"plotly_doubleclick","persistent":false,"dynamic":false,"color":null,"selectize":false,"defaultValues":null,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedDatab1969279"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>write.table(GO_name, here::here(&quot;output/Significant.txt&quot;), quote = F, sep = &quot;\t&quot;, col.names = F, row.names = F)</code></pre>
+</div>
+<div id="table-results" class="section level3">
+<h3>Table results</h3>
+<p>The results can also be visualized with a table:</p>
+<pre class="r"><code>GO$result %&gt;% 
+  as.data.frame() %&gt;% 
+  select(starts_with(c(&quot;source&quot;, &quot;term_name&quot;, &quot;p_value&quot;, &quot;term_size&quot;, &quot;intersection_size&quot;))) %&gt;% 
+  arrange(p_value) %&gt;%  
+  mutate(p_value = format(p_value, scientific = T, digits = 2)) %&gt;% 
+  DT::datatable(options = list(
+  columnDefs = list(list(className = &#39;dt-center&#39;, targets = 1:6)),
+  pageLength = 10)) %&gt;%
+  formatStyle(&#39;source&#39;, backgroundColor = styleEqual(c(&quot;GO:BP&quot;, &quot;GO:MF&quot;, &quot;GO:CC&quot;, &quot;KEGG&quot;), c(&#39;orange&#39;, &#39;tomato&#39;, &#39;lightgreen&#39;, &#39;violet&#39;)))</code></pre>
+<div id="htmlwidget-4c3f11826a2f032fe3ae" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4c3f11826a2f032fe3ae">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320","321","322","323","324","325","326","327","328","329","330","331","332","333","334","335","336","337","338","339","340","341","342","343","344","345","346","347","348","349","350","351","352","353","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369"],["GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:MF","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:BP","GO:CC","GO:BP","GO:BP","GO:MF","GO:MF","GO:CC","GO:BP","GO:MF","GO:BP","GO:CC","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:BP","GO:CC","GO:CC","GO:BP","GO:CC","GO:MF","GO:BP","GO:MF","GO:MF","GO:MF","GO:BP","GO:MF","GO:BP","GO:MF","GO:MF","GO:BP","GO:CC","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:BP","GO:BP","GO:CC","GO:BP","GO:MF","GO:BP","GO:BP","GO:BP","GO:MF","GO:MF","GO:BP","GO:BP","GO:BP","GO:CC","GO:MF","GO:CC","GO:BP","GO:BP","GO:CC","GO:CC","GO:CC","GO:BP","GO:CC","GO:BP","GO:CC","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:CC","GO:BP","GO:MF","GO:MF","GO:CC","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:CC","GO:MF","GO:BP","GO:MF","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:MF","GO:BP","GO:MF","GO:BP","GO:CC","GO:CC","GO:MF","GO:BP","GO:BP","GO:BP","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:CC","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:MF","GO:CC","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","KEGG","GO:BP","GO:CC","GO:BP","GO:BP","GO:MF","GO:BP","GO:CC","GO:BP","GO:CC","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:MF","GO:MF","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:MF","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:BP","GO:CC","GO:MF","GO:CC","GO:BP","GO:BP","GO:MF","GO:CC","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:CC","GO:MF","GO:BP","GO:CC","GO:MF","GO:CC","GO:BP","GO:BP","KEGG","GO:MF","GO:MF","GO:MF","GO:CC","GO:BP","GO:CC","GO:MF","GO:CC","GO:BP","GO:BP","GO:MF","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:BP","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:CC","GO:CC","GO:CC","GO:BP","GO:MF","GO:BP","GO:BP","GO:CC","GO:BP","GO:CC","GO:BP","GO:MF","GO:BP","GO:BP","GO:CC","GO:BP","GO:BP","GO:CC","GO:MF","GO:CC","GO:BP","GO:MF","GO:MF","GO:CC","GO:CC","GO:BP","GO:BP","GO:BP","GO:BP","GO:BP","GO:MF","GO:BP","GO:MF","GO:CC"],[470,284,2133,2129,2134,2720,1446,1452,438,2130,1570,385,295,312,2127,2132,14486,3961,6462,2933,11949,10305,4442,19815,399,5659,303,10003,3926,3750,6459,19510,2400,2410,19511,19292,2128,2976,23356,7600,19515,2413,20879,13203,2842,15572,3158,2409,5665,12668,21689,931,2188,5688,15569,14410,5363,2194,13018,25721,2130,14500,15683,3876,118,15294,15295,461,15740,3672,16054,13775,11682,4227,16046,8362,296,2866,15684,2133,26133,2733,17766,3747,17770,3790,3744,1879,16996,17768,3796,24834,19740,7622,3782,2951,2407,3542,2173,10027,2406,12386,6440,4787,9231,2405,4883,10009,3781,492,14204,3751,7129,19079,7174,35,11946,2147,6389,2946,4618,3945,5598,378,11668,2415,1438,2705,5672,20407,5882,457,12141,7628,24636,4728,4661,4535,16045,11669,4001,12383,3959,5689,26605,9964,1888,9081,23844,16061,12553,1210,1694,1015,2174,2977,480,1440,1447,10040,2334,13164,111,13163,25219,102,13022,4767,19737,25216,404,3612,2374,5411,3852,455,9428,21373,838,103,3673,332,103,12732,815,6775,12473,108,9054,18553,1118,2131,15,13020,12743,6342,2505,12163,4009,12166,10037,550,75,2936,323,9678,15685,1027,5687,19802,19190,17364,16112,114,14646,9604,13778,5407,6976,857,101,5405,19766,18660,2599,1878,1710,1057,2543,3801,511,14349,9546,3238,2765,12355,12746,15738,12133,1060,7633,2598,2392,2844,21150,15782,6697,207,2978,2435,2146,12725,6697,12744,2027,2123,386,3762,505,10822,2935,20371,5037,404,20252,8,13134,22537,3007,4764,449,9603,12472,3869,15771,24637,12103,8287,20412,1016,14659,14660,2416,12164,8356,438,6935,914,1961,1059,2192,16839,1005,1265,1067,25949,859,2856,9182,120,1453,401,5075,1963,1016,1125,4593,4225,245,1928,5039,5337,3860,21192,538,5564,2743,14651,19197,11810,4270,5901,2591,25857,12726,12753,22986,10411,3304,138,1348,16100,26352,2590,9645,4056,2131,2719,2985,10338,2868,9987,818,19316,2093,4320,8376,5802,16050,839,15644,45,1121,1862,1261,3621,11780,10410,3788,4391,5828,25031,5130,2419,21754,1996,2779,3996,506],["cytosol","intracellular anatomical structure","intracellular non-membrane-bounded organelle","non-membrane-bounded organelle","organelle lumen","intracellular organelle lumen","membrane-enclosed lumen","nuclear lumen","RNA binding","intracellular organelle","protein-containing complex","cytoplasm","nucleus","nucleoplasm","organelle","intracellular membrane-bounded organelle","intracellular transport","nuclear protein-containing complex","viral transcription","organelle organization","heterocyclic compound binding","organic cyclic compound binding","ribonucleoprotein complex","cellular component organization or biogenesis","nucleic acid binding","viral process","nuclear pore","cellular response to heat","response to heat","supramolecular complex","viral gene expression","ribonucleoprotein complex export from nucleus","RNA processing","mRNA export from nucleus","mRNA-containing ribonucleoprotein complex export from nucleus","ribonucleoprotein complex localization","membrane-bounded organelle","cell cycle","regulation of cellular response to heat","cell cycle process","tRNA-containing ribonucleoprotein complex export from nucleus","tRNA export from nucleus","intracellular transport of virus","establishment of protein localization","intracellular protein transport","tRNA transport","mitotic spindle","RNA export from nucleus","cellular component organization","cellular component biogenesis","ncRNA export from nucleus","host cellular component","host cell","mRNA metabolic process","mRNA transport","transport of virus","protein transport","nucleoside diphosphate phosphorylation","multi-organism transport","multi-organism localization","pyruvate metabolic process","nucleotide phosphorylation","nuclear export","response to temperature stimulus","mitotic cell cycle","nucleic acid transport","RNA transport","spindle","establishment of RNA localization","catabolic process","establishment of localization in cell","ADP metabolic process","ribosomal small subunit biogenesis","regulation of catabolic process","cellular localization","protein-containing complex localization","nuclear envelope","nucleocytoplasmic transport","nuclear transport","glycolytic process","mitotic cell cycle process","ATP generation from ADP","regulation of gene silencing by miRNA","purine nucleoside diphosphate metabolic process","regulation of gene silencing","purine ribonucleoside diphosphate metabolic process","nucleoside diphosphate metabolic process","protein binding","regulation of posttranscriptional gene silencing","regulation of gene silencing by RNA","ribonucleoside diphosphate metabolic process","organic substance catabolic process","nitrogen compound transport","cellular component assembly","polymeric cytoskeletal fiber","microtubule-based process","RNA localization","protein localization","nucleobase-containing compound metabolic process","cellular nitrogen compound metabolic process","mRNA catabolic process","regulation of carbohydrate catabolic process","viral life cycle","negative regulation of gene expression","macromolecule localization","RNA catabolic process","adenyl nucleotide binding","cellular protein localization","supramolecular fiber","cytoskeleton","heterocycle metabolic process","supramolecular polymer","protein-containing complex binding","cellular macromolecule localization","cadherin binding","nucleotide binding","nucleoside phosphate binding","regulation of glycolytic process","small molecule binding","cytoskeleton organization","enzyme binding","structural constituent of nuclear pore","nucleobase-containing compound transport","nucleolus","ribosome biogenesis","translation","nuclear membrane","cellular aromatic compound metabolic process","carbohydrate catabolic process","establishment of protein localization to organelle","protein sumoylation","microtubule organizing center","peptide biosynthetic process","ribonucleoprotein complex biogenesis","organic cyclic compound metabolic process","regulation of cell cycle process","gene expression","intermediate filament binding","organelle localization","ribosome assembly","catalytic complex","regulation of generation of precursor metabolites and energy","purine nucleotide binding","rRNA metabolic process","regulation of ATP metabolic process","ncRNA processing","ATP binding","cell adhesion molecule binding","regulation of purine nucleotide metabolic process","establishment of organelle localization","protein-containing complex subunit organization","nuclear pore outer ring","structural molecule activity","cytosolic ribosome","regulation of nucleotide metabolic process","spindle organization","ribosome","organelle envelope","envelope","ncRNA metabolic process","ribosomal subunit","intermediate filament cytoskeleton organization","condensed chromosome","intermediate filament-based process","regulation of mitotic cell cycle phase transition","kinetochore","mitotic cell cycle phase transition","posttranscriptional regulation of gene expression","organic substance transport","regulation of cell cycle phase transition","mitochondrial matrix","chromosomal region","rRNA processing","adenyl ribonucleotide binding","ATPase","centrosome","protein localization to organelle","nucleic acid metabolic process","microtubule cytoskeleton","microtubule cytoskeleton organization","macromolecule catabolic process","nuclear-transcribed mRNA catabolic process","condensed chromosome, centromeric region","cellular catabolic process","cytoplasmic stress granule","anion binding","amide biosynthetic process","adenyl-nucleotide exchange factor activity","monocarboxylic acid metabolic process","regulation of small molecule metabolic process","cytoplasmic vesicle membrane","generation of precursor metabolites and energy","ribosomal small subunit assembly","cell cycle phase transition","cellular macromolecule catabolic process","purine ribonucleoside triphosphate binding","peptide metabolic process","negative regulation of apoptotic process","response to abiotic stimulus","negative regulation of programmed cell death","nucleobase-containing compound catabolic process","focal adhesion","nuclear-transcribed mRNA catabolic process, nonsense-mediated decay","nuclear pore organization","transcription regulator complex","stress granule assembly","import into nucleus","cell-substrate junction","RNA metabolic process","ribonucleoprotein complex subunit organization","organelle assembly","negative regulation of cell death","regulation of cell cycle","condensin complex","Golgi vesicle transport","ATPase regulator activity","ATP metabolic process","purine ribonucleotide binding","carboxylic acid metabolic process","inclusion body","chromosome, centromeric region","ribonucleotide binding","nuclear membrane organization","protein-containing complex assembly","SRP-dependent cotranslational protein targeting to membrane","ribonucleoprotein granule","nuclear periphery","membrane coat","coated membrane","ficolin-1-rich granule membrane","intermediate filament","heterocycle catabolic process","cellular response to stress","regulation of mitotic cell cycle","anchoring junction","oxoacid metabolic process","cellular nitrogen compound catabolic process","establishment of localization","keratin filament binding","vesicle coat","ribonucleoprotein complex assembly","cotranslational protein targeting to membrane","nuclear pore nuclear basket","endoplasmic reticulum to Golgi vesicle-mediated transport","positive regulation of cell cycle process","nuclear pore complex assembly","aromatic compound catabolic process","RNA transport","mitotic spindle organization","intermediate filament cytoskeleton","regulation of carbohydrate metabolic process","cellular metabolic process","histone deacetylase binding","cellular protein metabolic process","nuclear inclusion body","organic acid metabolic process","mitochondrion","purine ribonucleotide metabolic process","microtubule","aggrephagy","nuclear envelope organization","purine-containing compound metabolic process","heat shock protein binding","chromatin binding","signal transduction by p53 class mediator","histone deacetylase complex","protein targeting to ER","mitotic nuclear membrane organization","mitotic nuclear membrane reassembly","negative regulation of macromolecule metabolic process","structural constituent of ribosome","nucleoside-triphosphatase regulator activity","cellular amide metabolic process","ribonucleotide metabolic process","chromosome organization","organic cyclic compound catabolic process","regulation of apoptotic process","regulation of cellular catabolic process","establishment of protein localization to endoplasmic reticulum","cytosolic small ribosomal subunit","vesicle targeting, rough ER to cis-Golgi","COPII vesicle coating","translational initiation","regulation of programmed cell death","nuclear membrane reassembly","Golgi apparatus","ribose phosphate metabolic process","transcription repressor complex","ATPase, acting on DNA","AP-type membrane coat adaptor complex","purine nucleotide metabolic process","nucleobase-containing small molecule metabolic process","helicase activity","leading edge membrane","COPII vesicle coat","microtubule cytoskeleton organization involved in mitosis","cytoplasmic translation","vesicle coating","collagen biosynthetic process","nuclear division","vesicle","DNA helicase activity","regulation of cell death","cytoplasmic ribonucleoprotein granule","histone deacetylase activity","secretory granule membrane","regulation of G2/M transition of mitotic cell cycle","negative regulation of metabolic process","Cell cycle","microtubule binding","histone deacetylase activity (H3-K14 specific)","NAD-dependent histone deacetylase activity (H3-K14 specific)","plasma membrane bounded cell projection","COPII-coated vesicle budding","adherens junction","protein deacetylase activity","extracellular exosome","vesicle targeting, to, from or within Golgi","histone H4 deacetylation","DNA-binding transcription factor binding","DNA repair complex","protein import","protein import into nucleus","regulation of cell cycle G2/M phase transition","primary metabolic process","small molecule metabolic process","mitotic nuclear division","cell-cell adhesion mediator activity","central nervous system development","spindle pole","negative regulation of immune effector process","multi-organism process","regulation of mRNA metabolic process","protein targeting","RNA polymerase II-specific DNA-binding transcription factor binding","extracellular vesicle","extracellular organelle","extracellular membrane-bounded organelle","chromosome segregation","carbohydrate derivative binding","apoptotic process","protein localization to nucleus","vesicle membrane","cellular response to muramyl dipeptide","cell projection","response to organic substance","monosaccharide binding","female meiosis chromosome segregation","Golgi localization","large ribosomal subunit","regulation of cellular component organization","G2/M transition of mitotic cell cycle","coated vesicle membrane","binding","cell leading edge","RNA splicing","catalytic activity, acting on DNA","cell adhesion mediator activity","cytoplasmic region","cytoplasmic periphery of the nuclear pore complex","posttranscriptional gene silencing","regulation of signal transduction by p53 class mediator","programmed cell death","regulation of translation","extrinsic apoptotic signaling pathway","nuclear localization sequence binding","transport","NAD-dependent histone deacetylase activity","microtubule associated complex"],["1.1e-25","2.1e-22","5.4e-22","6.5e-22","1.8e-21","1.8e-21","1.8e-21","1.2e-20","4.6e-20","2.2e-19","2.5e-19","1.3e-17","4.3e-16","6.8e-16","1.1e-14","2.3e-14","3.2e-14","1.5e-13","2.5e-13","3.0e-13","6.0e-13","2.3e-12","4.9e-12","6.5e-12","5.4e-11","6.7e-11","7.1e-11","7.8e-11","1.1e-10","1.1e-10","1.5e-10","1.9e-10","2.0e-10","2.2e-10","2.2e-10","2.2e-10","2.4e-10","2.6e-10","3.5e-10","3.9e-10","5.0e-10","5.0e-10","1.3e-09","1.4e-09","1.4e-09","1.6e-09","1.8e-09","1.8e-09","2.1e-09","2.2e-09","2.3e-09","2.6e-09","2.6e-09","2.9e-09","4.2e-09","6.2e-09","6.3e-09","8.8e-09","9.4e-09","9.4e-09","1.0e-08","1.1e-08","1.2e-08","1.2e-08","1.3e-08","1.5e-08","1.5e-08","1.7e-08","2.1e-08","2.2e-08","2.6e-08","3.0e-08","3.0e-08","4.3e-08","4.3e-08","5.8e-08","5.9e-08","8.8e-08","1.1e-07","1.2e-07","1.3e-07","1.3e-07","1.3e-07","1.4e-07","1.4e-07","1.4e-07","1.4e-07","1.5e-07","1.7e-07","1.9e-07","1.9e-07","2.1e-07","2.2e-07","2.4e-07","2.9e-07","3.2e-07","5.2e-07","5.6e-07","5.8e-07","6.3e-07","6.6e-07","7.5e-07","7.7e-07","8.9e-07","1.1e-06","1.1e-06","1.1e-06","1.2e-06","1.3e-06","1.3e-06","1.3e-06","1.5e-06","1.5e-06","1.7e-06","1.8e-06","2.0e-06","2.0e-06","2.1e-06","2.2e-06","2.5e-06","2.9e-06","3.1e-06","3.2e-06","3.3e-06","3.4e-06","3.6e-06","4.7e-06","4.9e-06","5.0e-06","5.9e-06","6.3e-06","9.9e-06","1.0e-05","1.1e-05","1.3e-05","1.7e-05","1.7e-05","1.7e-05","1.7e-05","1.8e-05","2.0e-05","2.0e-05","2.0e-05","2.1e-05","2.1e-05","2.3e-05","2.3e-05","2.3e-05","2.3e-05","2.4e-05","2.4e-05","2.5e-05","2.5e-05","2.8e-05","2.9e-05","3.1e-05","3.2e-05","3.5e-05","3.5e-05","3.7e-05","4.1e-05","4.2e-05","4.5e-05","4.5e-05","4.7e-05","4.7e-05","5.1e-05","5.3e-05","5.5e-05","6.2e-05","6.3e-05","6.3e-05","6.6e-05","7.1e-05","7.3e-05","7.4e-05","8.6e-05","8.9e-05","9.0e-05","9.5e-05","1.0e-04","1.0e-04","1.1e-04","1.1e-04","1.6e-04","1.6e-04","1.7e-04","2.2e-04","2.3e-04","2.3e-04","2.4e-04","2.5e-04","2.8e-04","2.8e-04","2.8e-04","2.9e-04","2.9e-04","3.0e-04","3.2e-04","3.5e-04","4.0e-04","4.1e-04","4.2e-04","4.3e-04","4.3e-04","5.1e-04","5.1e-04","5.2e-04","5.6e-04","5.7e-04","5.8e-04","6.1e-04","6.2e-04","6.5e-04","6.8e-04","7.6e-04","7.9e-04","7.9e-04","8.4e-04","9.4e-04","9.7e-04","1.0e-03","1.1e-03","1.1e-03","1.3e-03","1.4e-03","1.5e-03","1.5e-03","1.5e-03","1.6e-03","1.7e-03","1.7e-03","1.7e-03","1.7e-03","1.7e-03","1.8e-03","2.0e-03","2.1e-03","2.1e-03","2.1e-03","2.2e-03","2.3e-03","2.5e-03","2.6e-03","2.7e-03","2.9e-03","2.9e-03","3.1e-03","3.1e-03","3.3e-03","3.4e-03","3.4e-03","3.4e-03","3.5e-03","3.5e-03","3.5e-03","3.6e-03","3.6e-03","3.7e-03","4.0e-03","4.0e-03","4.1e-03","4.2e-03","4.3e-03","4.4e-03","4.9e-03","4.9e-03","5.0e-03","5.0e-03","5.3e-03","5.4e-03","5.4e-03","5.5e-03","6.2e-03","6.4e-03","6.5e-03","6.5e-03","6.5e-03","6.8e-03","6.8e-03","6.9e-03","6.9e-03","7.1e-03","7.7e-03","7.8e-03","8.0e-03","8.6e-03","8.9e-03","9.0e-03","9.1e-03","9.2e-03","9.2e-03","1.0e-02","1.0e-02","1.1e-02","1.1e-02","1.1e-02","1.1e-02","1.1e-02","1.2e-02","1.2e-02","1.2e-02","1.2e-02","1.3e-02","1.3e-02","1.3e-02","1.3e-02","1.3e-02","1.3e-02","1.4e-02","1.5e-02","1.5e-02","1.5e-02","1.5e-02","1.6e-02","1.6e-02","1.6e-02","1.7e-02","1.7e-02","1.8e-02","1.9e-02","1.9e-02","1.9e-02","2.0e-02","2.0e-02","2.0e-02","2.1e-02","2.1e-02","2.2e-02","2.2e-02","2.3e-02","2.3e-02","2.4e-02","2.4e-02","2.6e-02","2.6e-02","2.6e-02","2.6e-02","2.7e-02","2.7e-02","2.8e-02","2.8e-02","2.9e-02","3.0e-02","3.1e-02","3.1e-02","3.2e-02","3.2e-02","3.2e-02","3.3e-02","3.3e-02","3.4e-02","3.5e-02","3.7e-02","3.7e-02","4.1e-02","4.1e-02","4.1e-02","4.1e-02","4.1e-02","4.1e-02","4.4e-02","4.5e-02","4.7e-02","4.7e-02","4.8e-02","4.8e-02","4.9e-02","4.9e-02"],[5361,14808,5094,5102,5579,5579,5579,4453,1951,13117,5541,11951,7607,4112,14027,12046,1723,1236,181,4136,6210,6291,694,6880,4252,1011,85,119,159,1325,237,130,1010,112,112,131,13201,1867,79,1388,34,34,57,1866,995,37,161,129,6661,3377,38,58,58,880,151,64,1754,135,66,66,152,137,202,229,1098,183,183,390,186,2779,2778,125,74,1081,3519,289,471,353,356,116,956,117,117,138,138,138,160,14767,119,120,141,2289,2216,3104,766,927,222,2670,5752,6576,388,92,386,1470,3148,431,1577,1842,997,2339,5929,1005,1304,1856,333,2176,2177,81,2516,1473,2048,28,246,955,335,804,301,5973,201,523,78,815,834,473,6227,815,6192,15,657,62,1377,167,1932,275,120,439,1500,544,121,443,2017,10,701,106,123,256,247,1244,1244,535,191,50,239,51,453,133,588,928,2657,543,482,348,265,1564,553,620,974,5234,1313,663,1479,214,144,2381,77,2413,975,11,663,430,789,545,19,681,1244,1846,998,928,1264,952,573,420,123,14,431,26,174,427,4714,203,921,1047,1120,8,415,43,317,1917,1033,77,200,1934,74,1724,96,252,132,97,97,60,219,617,2142,612,838,1066,623,5364,6,55,196,102,12,208,237,9,636,180,194,260,215,10941,115,5280,13,1098,1678,416,435,31,85,468,127,573,290,78,111,51,51,3262,171,526,1284,433,1270,664,1560,913,115,46,65,65,203,1603,54,1593,444,62,185,41,446,628,163,179,15,214,149,69,56,495,4058,76,1740,238,22,308,204,3498,124,273,11,11,2234,72,171,23,2178,73,11,234,36,219,154,213,10642,1924,346,49,1052,168,107,1155,384,400,196,2263,2265,2265,353,2282,1998,294,1183,9,2337,3457,71,5,14,119,2439,262,177,17070,426,459,299,58,270,2,424,202,2158,504,226,26,5214,16,164],[159,308,168,168,178,178,178,154,95,288,160,265,203,137,291,261,81,59,25,131,173,173,40,174,130,52,15,18,20,58,25,20,54,18,18,20,273,77,15,64,12,12,13,71,49,12,17,19,164,97,12,12,12,48,19,13,67,17,13,13,18,17,21,21,53,20,20,28,20,89,93,16,13,49,110,24,27,26,26,15,47,15,15,16,16,16,17,287,15,15,16,67,74,87,27,35,20,83,142,156,25,13,21,56,92,29,44,64,30,55,144,30,52,64,23,53,53,12,58,56,69,7,20,41,22,40,18,143,17,30,11,17,40,26,146,31,145,6,30,10,49,15,47,19,13,24,40,28,13,25,65,5,32,11,13,18,16,37,37,30,14,4,16,4,22,12,27,36,77,24,18,20,20,40,25,14,36,136,35,27,55,17,12,76,10,52,35,4,24,22,15,25,6,28,48,43,35,6,41,6,26,19,12,5,16,7,14,19,123,15,33,6,42,4,21,6,18,43,36,8,13,43,10,51,10,16,9,9,9,5,4,26,45,28,27,36,26,123,2,7,14,10,4,14,15,4,26,17,15,4,14,204,8,104,4,36,33,17,13,5,10,18,5,23,18,8,10,8,8,83,11,16,38,17,42,26,6,34,10,6,8,8,13,6,8,14,17,7,12,3,17,21,7,9,4,15,11,8,3,24,22,6,6,14,4,8,12,86,6,11,3,3,32,8,11,4,16,8,4,10,5,14,11,12,176,49,17,4,11,9,5,32,19,20,9,16,16,16,17,44,6,15,15,2,23,9,6,3,3,8,37,13,10,305,13,22,11,4,7,2,17,13,6,13,3,4,115,3,7]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>source<\/th>\n      <th>source_order<\/th>\n      <th>term_name<\/th>\n      <th>p_value<\/th>\n      <th>term_size<\/th>\n      <th>intersection_size<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-center","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0}],"pageLength":10,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':value == \"GO:BP\" ? \"orange\" : value == \"GO:MF\" ? \"tomato\" : value == \"GO:CC\" ? \"lightgreen\" : value == \"KEGG\" ? \"violet\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="treemap" class="section level3 tabset tabset-fade">
+<h3>Treemap</h3>
+<div id="bp" class="section level4">
+<h4>BP</h4>
+<pre class="r"><code>simMatrix &lt;- GO$result %&gt;% 
+  as.data.frame() %&gt;%
+  filter(source == &quot;GO:BP&quot;) %&gt;% 
+  pull(term_id) %&gt;% 
+  calculateSimMatrix(orgdb=&quot;org.Hs.eg.db&quot;, ont=&quot;BP&quot;, method=&quot;Rel&quot;)
+
+scores &lt;- setNames(-log10(GO$result$p_value), GO$result$term_id)
+
+reducedTerms &lt;- reduceSimMatrix(simMatrix,
+                                scores,
+                                threshold=0.7,
+                                orgdb=&quot;org.Hs.eg.db&quot;)
+
+treemapPlot(reducedTerms)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/unnamed-chunk-1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mf" class="section level4">
+<h4>MF</h4>
+<pre class="r"><code>simMatrix &lt;- GO$result %&gt;% 
+  as.data.frame() %&gt;%
+  filter(source == &quot;GO:MF&quot;) %&gt;% 
+  pull(term_id) %&gt;% 
+  calculateSimMatrix(orgdb=&quot;org.Hs.eg.db&quot;, ont=&quot;MF&quot;, method=&quot;Rel&quot;)
+
+scores &lt;- setNames(-log10(GO$result$p_value), GO$result$term_id)
+
+reducedTerms &lt;- reduceSimMatrix(simMatrix,
+                                scores,
+                                threshold=0.7,
+                                orgdb=&quot;org.Hs.eg.db&quot;)
+
+treemapPlot(reducedTerms)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/unnamed-chunk-2-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cc" class="section level4">
+<h4>CC</h4>
+<pre class="r"><code>simMatrix &lt;- GO$result %&gt;% 
+  as.data.frame() %&gt;%
+  filter(source == &quot;GO:CC&quot;) %&gt;% 
+  pull(term_id) %&gt;% 
+  calculateSimMatrix(orgdb=&quot;org.Hs.eg.db&quot;, ont=&quot;CC&quot;, method=&quot;Rel&quot;)
+
+scores &lt;- setNames(-log10(GO$result$p_value), GO$result$term_id)
+
+reducedTerms &lt;- reduceSimMatrix(simMatrix,
+                                scores,
+                                threshold=0.7,
+                                orgdb=&quot;org.Hs.eg.db&quot;)
+
+treemapPlot(reducedTerms)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/unnamed-chunk-3-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="comparison-old-analysis" class="section level2">
+<h2>Comparison old analysis</h2>
+<pre class="r"><code>new &lt;- data_unique %&gt;% pull(name)
+
+data_old &lt;- read.csv(here::here(&quot;data/proteinGroups_old.txt&quot;), header = TRUE,stringsAsFactors = FALSE, sep = &quot;\t&quot;)
+
+data_old &lt;- data_old[data_old$Reverse != &quot;+&quot; &amp; data_old$Potential.contaminant != &quot;+&quot; &amp; data_old$Only.identified.by.site != &quot;+&quot; &amp; data_old$Peptides &gt;= 2,]
+
+data_unique_old &lt;- make_unique(data_old, &quot;Gene.names&quot;, &quot;Protein.IDs&quot;, delim = &quot;;&quot;)
+
+old &lt;- data_unique_old %&gt;% pull(name)
+
+write.table(new, here::here(&quot;output/new_proteins_identify.txt&quot;), quote = F, sep = &quot;\t&quot;, col.names = F, row.names = F)
+
+write.table(old, here::here(&quot;output/old_proteins_identify.txt&quot;), quote = F, sep = &quot;\t&quot;, col.names = F, row.names = F)
+
+data_se &lt;- make_se(data_unique, columns, expdesign)
+
+expdesign_old &lt;- read.table(here::here(&quot;data/expdesign_old.tsv&quot;), header = T, stringsAsFactors = F)
+
+expdesign_old &lt;- subset(expdesign_old, condition %in% conditions)
+
+columns&lt;-match(paste(&quot;LFQ.intensity.&quot;,expdesign_old$label,sep=&quot;&quot;),colnames(data_unique_old))
+
+data_se_old &lt;- make_se(data_unique_old, columns, expdesign_old)</code></pre>
+<div id="protein-counts" class="section level3 tabset tabset-fade">
+<h3>Protein counts</h3>
+<div id="new" class="section level4">
+<h4>New</h4>
+<pre class="r"><code>plot_numbers_lables(data_se)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/unnamed-chunk-5-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="old" class="section level4">
+<h4>Old</h4>
+<pre class="r"><code>plot_numbers_lables(data_se_old)</code></pre>
+<p><img src="figure/IPZC3H4.Rmd/unnamed-chunk-6-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="venn-plots" class="section level3 tabset tabset-fade">
+<h3>Venn plots</h3>
+<div id="protein-counts-1" class="section level4">
+<h4>Protein counts</h4>
+<p>In this venn diagram I also added the interesting proteins identified by Marta</p>
+<pre class="r"><code>knitr::include_graphics(&quot;assets/new_vs_HITs.png&quot;,  error = F)</code></pre>
+<p><img src="assets/new_vs_HITs.png" width="150%" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>common &lt;- c(&quot;HDAC2&quot;, &quot;RBM14&quot;, &quot;ZC3H4&quot;, &quot;ANXA1&quot;, &quot;BST2&quot;, &quot;CBS&quot;, &quot;GEMIN4&quot;, &quot;KPNA2&quot;, &quot;PPP6C&quot;, &quot;RPL23A&quot;, &quot;RPS24&quot;, &quot;SLC16A3&quot;)</code></pre>
+</div>
+<div id="significant" class="section level4">
+<h4>Significant</h4>
+<p>common proteins are: HDAC2, RBM14, ZC3H4, ANXA1, BST2, CBS, GEMIN4, KPNA2, PPP6C, RPL23A, RPS24, SLC16A3</p>
+<pre class="r"><code>knitr::include_graphics(&quot;assets/venn_old_new.png&quot;,  error = F)</code></pre>
+<p><img src="assets/venn_old_new.png" width="150%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="section" class="section level2 unnumbered">
+<h2></h2>
+<pre class="r"><code>saveWorkbook(excel, here::here(&quot;output/results_GN_MR_IPZC3H4_210721.xlsx&quot;), overwrite = T)</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.3 (2020-10-10)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19042)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=Italian_Italy.1252  LC_CTYPE=Italian_Italy.1252   
+[3] LC_MONETARY=Italian_Italy.1252 LC_NUMERIC=C                  
+[5] LC_TIME=Italian_Italy.1252    
+
+attached base packages:
+[1] parallel  stats4    stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] forcats_0.5.1               stringr_1.4.0              
+ [3] dplyr_1.0.7                 purrr_0.3.4                
+ [5] readr_1.4.0                 tidyr_1.1.3                
+ [7] tibble_3.1.2                tidyverse_1.3.1            
+ [9] rrvgo_1.2.0                 org.Hs.eg.db_3.12.0        
+[11] AnnotationDbi_1.52.0        openxlsx_4.2.4             
+[13] gprofiler2_0.2.0            naniar_0.6.1               
+[15] visdat_0.5.3                ggrepel_0.9.1              
+[17] ggplot2_3.3.5               UpSetR_1.4.0               
+[19] ggstatsplot_0.8.0           datapasta_3.1.0            
+[21] here_1.0.1                  patchwork_1.1.1            
+[23] DT_0.18                     enrichR_3.0                
+[25] preprocessCore_1.52.1       SummarizedExperiment_1.20.0
+[27] Biobase_2.50.0              GenomicRanges_1.42.0       
+[29] GenomeInfoDb_1.26.2         IRanges_2.24.1             
+[31] S4Vectors_0.28.1            BiocGenerics_0.36.0        
+[33] MatrixGenerics_1.2.1        matrixStats_0.59.0         
+[35] DEP_1.12.0                  MBQN_2.2.0                 
+[37] workflowr_1.6.2            
+
+loaded via a namespace (and not attached):
+  [1] rappdirs_0.3.3            coda_0.19-4              
+  [3] bit64_4.0.5               knitr_1.33               
+  [5] DelayedArray_0.16.2       data.table_1.14.0        
+  [7] RCurl_1.98-1.3            doParallel_1.0.16        
+  [9] generics_0.1.0            RSQLite_2.2.7            
+ [11] correlation_0.6.1         bit_4.0.4                
+ [13] xml2_1.3.2                lubridate_1.7.10         
+ [15] httpuv_1.6.1              assertthat_0.2.1         
+ [17] WRS2_1.1-2                xfun_0.24                
+ [19] hms_1.1.0                 jquerylib_0.1.4          
+ [21] evaluate_0.14             promises_1.2.0.1         
+ [23] fansi_0.5.0               dbplyr_2.1.1             
+ [25] readxl_1.3.1              igraph_1.2.6             
+ [27] DBI_1.1.1                 htmlwidgets_1.5.3        
+ [29] reshape_0.8.8             kSamples_1.2-9           
+ [31] Rmpfr_0.8-4               paletteer_1.3.0          
+ [33] ellipsis_0.3.2            crosstalk_1.1.1          
+ [35] backports_1.2.1           insight_0.14.2           
+ [37] gridBase_0.4-7            vctrs_0.3.8              
+ [39] imputeLCMD_2.0            Cairo_1.5-12.2           
+ [41] cachem_1.0.5              withr_2.4.2              
+ [43] treemap_2.4-2             cluster_2.1.0            
+ [45] lazyeval_0.2.2            crayon_1.4.1             
+ [47] pkgconfig_2.0.3           SuppDists_1.1-9.5        
+ [49] slam_0.1-48               labeling_0.4.2           
+ [51] statsExpressions_1.1.0    ProtGenerics_1.22.0      
+ [53] wordcloud_2.6             rlang_0.4.11             
+ [55] lifecycle_1.0.0           MatrixModels_0.5-0       
+ [57] sandwich_3.0-1            affyio_1.60.0            
+ [59] BiocFileCache_1.14.0      modelr_0.1.8             
+ [61] cellranger_1.1.0          rprojroot_2.0.2          
+ [63] Matrix_1.2-18             mc2d_0.1-21              
+ [65] zoo_1.8-9                 reprex_2.0.0             
+ [67] whisker_0.4               GlobalOptions_0.1.2      
+ [69] pheatmap_1.0.12           png_0.1-7                
+ [71] viridisLite_0.4.0         rjson_0.2.20             
+ [73] mzR_2.24.1                PMCMRplus_1.9.0          
+ [75] parameters_0.14.0         bitops_1.0-7             
+ [77] shinydashboard_0.7.1      blob_1.2.1               
+ [79] shape_1.4.6               multcompView_0.1-8       
+ [81] tmvtnorm_1.4-10           ggsignif_0.6.2           
+ [83] scales_1.1.1              memoise_2.0.0            
+ [85] magrittr_2.0.1            plyr_1.8.6               
+ [87] zlibbioc_1.36.0           compiler_4.0.3           
+ [89] RColorBrewer_1.1-2        pcaMethods_1.82.0        
+ [91] clue_0.3-59               cli_3.0.0                
+ [93] affy_1.68.0               XVector_0.30.0           
+ [95] pbapply_1.4-3             MASS_7.3-53              
+ [97] tidyselect_1.1.1          vsn_3.58.0               
+ [99] stringi_1.6.2             highr_0.9                
+[101] yaml_2.2.1                GOSemSim_2.16.1          
+[103] norm_1.0-9.5              MALDIquant_1.19.3        
+[105] grid_4.0.3                sass_0.4.0               
+[107] tools_4.0.3               circlize_0.4.13          
+[109] rstudioapi_0.13           foreach_1.5.1            
+[111] git2r_0.28.0              gridExtra_2.3            
+[113] ipmisc_6.0.2              pairwiseComparisons_3.1.6
+[115] farver_2.1.0              mzID_1.28.0              
+[117] digest_0.6.27             BiocManager_1.30.16      
+[119] shiny_1.6.0               BWStest_0.2.2            
+[121] Rcpp_1.0.6                broom_0.7.8              
+[123] BayesFactor_0.9.12-4.2    performance_0.7.2        
+[125] later_1.2.0               ncdf4_1.17               
+[127] httr_1.4.2                MSnbase_2.15.7           
+[129] ComplexHeatmap_2.6.2      effectsize_0.4.5         
+[131] colorspace_2.0-2          rvest_1.0.0              
+[133] XML_3.99-0.6              fs_1.5.0                 
+[135] rematch2_2.1.2            gmm_1.6-6                
+[137] plotly_4.9.4.1            xtable_1.8-4             
+[139] gmp_0.6-2                 jsonlite_1.7.2           
+[141] zeallot_0.1.0             NLP_0.2-1                
+[143] R6_2.5.0                  tm_0.7-8                 
+[145] pillar_1.6.1              htmltools_0.5.1.1        
+[147] mime_0.11                 glue_1.4.2               
+[149] fastmap_1.1.0             BiocParallel_1.24.1      
+[151] codetools_0.2-16          mvtnorm_1.1-2            
+[153] utf8_1.2.1                lattice_0.20-41          
+[155] bslib_0.2.5.1             curl_4.3.2               
+[157] gtools_3.9.2              zip_2.2.0                
+[159] GO.db_3.12.1              limma_3.46.0             
+[161] rmarkdown_2.9             munsell_0.5.0            
+[163] GetoptLong_1.0.5          GenomeInfoDbData_1.2.4   
+[165] iterators_1.0.13          impute_1.64.0            
+[167] haven_2.4.1               gtable_0.3.0             
+[169] bayestestR_0.10.0        </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
