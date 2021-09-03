@@ -400,7 +400,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-07-23
+<strong>Last updated:</strong> 2021-09-03
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -491,16 +491,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomFabioBedinGNMRIPZC3H4treef744bf789c465292e0c59bc4db0e601a3f629a81targetblankf744bf7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/FabioBedin/GN_MR_IPZC3H4/tree/f744bf789c465292e0c59bc4db0e601a3f629a81" target="_blank">f744bf7</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomFabioBedinGNMRIPZC3H4tree105f46b499ceda0505d5a627dfdb14718c178c67targetblank105f46ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/FabioBedin/GN_MR_IPZC3H4/tree/105f46b499ceda0505d5a627dfdb14718c178c67" target="_blank">105f46b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomFabioBedinGNMRIPZC3H4treef744bf789c465292e0c59bc4db0e601a3f629a81targetblankf744bf7a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomFabioBedinGNMRIPZC3H4tree105f46b499ceda0505d5a627dfdb14718c178c67targetblank105f46ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/FabioBedin/GN_MR_IPZC3H4/tree/f744bf789c465292e0c59bc4db0e601a3f629a81" target="_blank">f744bf7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/FabioBedin/GN_MR_IPZC3H4/tree/105f46b499ceda0505d5a627dfdb14718c178c67" target="_blank">105f46b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -512,6 +512,7 @@ Ignored files:
 
 Untracked files:
     Untracked:  code/custom_functions.R
+    Untracked:  code/custom_functions2.R
     Untracked:  data/expdesign.tsv
     Untracked:  data/expdesign_all.tsv
     Untracked:  data/expdesign_old.tsv
@@ -521,10 +522,15 @@ Untracked files:
     Untracked:  data/proteinGroups_old.txt
     Untracked:  output/Significant.txt
     Untracked:  output/Significant_old.txt
+    Untracked:  output/enrichmentmap.txt
+    Untracked:  output/network_FC_pvalue.png
+    Untracked:  output/network_enrichmentmap.png
     Untracked:  output/new_proteins_identify.txt
     Untracked:  output/old_proteins_identify.txt
     Untracked:  output/results_GN_MR_IPZC3H4_210721.xlsx
+    Untracked:  output/results_GN_MR_IPZC3H4_all_210721.xlsx
     Untracked:  output/results_GN_MR_IPZC3H4_old_210721.xlsx
+    Untracked:  output/results_table.xlsx
 
 </code></pre>
 <p>
@@ -563,6 +569,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/FabioBedin/GN_MR_IPZC3H4/blob/105f46b499ceda0505d5a627dfdb14718c178c67/analysis/IPZC3H4_all.Rmd" target="_blank">105f46b</a>
+</td>
+<td>
+FabioBedin
+</td>
+<td>
+2021-09-03
+</td>
+<td>
+add the new Template_LFQ file
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/FabioBedin/GN_MR_IPZC3H4/00b14afbbd6f3441ed8fea123b36364181d9bbbf/docs/IPZC3H4_all.html" target="_blank">00b14af</a>
+</td>
+<td>
+FabioBedin
+</td>
+<td>
+2021-07-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -841,7 +881,7 @@ GO &lt;- gost(query = GO_name, organism = &quot;hsapiens&quot;, sources = c(&quo
 
 gostplot(GO, capped = TRUE, interactive = TRUE)</code></pre>
 <div id="htmlwidget-7fa771798f1b3a89dda5" style="width:1152px;height:768px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7fa771798f1b3a89dda5">{"x":{"data":[{"x":[57.3274714591772],"y":[1.87365423460556],"text":"GO:0016604 (816) <br> nuclear body <br> 1.338e-02","key":["GO:0016604"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(16,150,24,1)","opacity":0.8,"size":22.6771653543307,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(16,150,24,1)"}},"hoveron":"points","set":"SharedData304e9ece","name":"GO:CC","legendgroup":"GO:CC","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"x":[34.6742408686399,3.70922220237242],"y":[2.11287094819132,1.38131872319012],"text":["GO:0048027 (27) <br> mRNA 5'-UTR binding <br> 7.711e-03","GO:0003724 (76) <br> RNA helicase activity <br> 4.156e-02"],"key":["GO:0048027","GO:0003724"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(220,57,18,1)","opacity":0.8,"size":[3.77952755905512,14.1923721978785],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(220,57,18,1)"}},"hoveron":"points","set":"SharedData304e9ece","name":"GO:MF","legendgroup":"GO:MF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null},{"x":[2,49.9206590071537],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(220,57,18,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[53.8226750487752,71.2217645783655],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(16,150,24,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[75.123780619987,193.971385215695],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(255,153,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[197.873401257316,200.003902016042],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(221,68,119,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[180],"y":[16.2],"text":"values above this threshold are capped","hovertext":"","textfont":{"size":7.55905511811024,"color":"rgba(190,190,190,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,210],"y":[16,16],"text":"","type":"scatter","mode":"lines","line":{"width":0.755905511811024,"color":"rgba(190,190,190,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":29.2835201328352,"r":6.6417600664176,"b":58.5348701653872,"l":61.0377750103778},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,210],"tickmode":"array","ticktext":["GO:MF","GO:CC","GO:BP","KEGG"],"tickvals":[25.9603295035768,62.5222198135703,134.547582917841,198.938651636679],"categoryorder":"array","categoryarray":["GO:MF","GO:CC","GO:BP","KEGG"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-45,"showline":true,"linecolor":"rgba(190,190,190,1)","linewidth":0.132835201328352,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1,18.5],"tickmode":"array","ticktext":["0","2","4","6","8","10","12","14",">16"],"tickvals":[0,2,4,6,8,10,12,14,16],"categoryorder":"array","categoryarray":["0","2","4","6","8","10","12","14",">16"],"nticks":null,"ticks":"outside","tickcolor":"rgba(190,190,190,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(190,190,190,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"annotations":[{"text":"-log10(p-adj)","x":-0.00905891102808911,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis"},{"text":"query_1","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(169,169,169,1)","family":"","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":24.9730178497302,"yanchor":1,"ysizemode":"pixel"}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative","dragmode":"zoom"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"33e8b125e4c":{"x":{},"y":{},"text":{},"colour":{},"size":{},"alpha":{},"type":"scatter"},"33e82a8a3c52":{"x":{},"xend":{},"y":{},"yend":{}},"33e86dec1fe8":{"x":{},"xend":{},"y":{},"yend":{}},"33e8a4c6ef5":{"x":{},"xend":{},"y":{},"yend":{}},"33e82f977dde":{"x":{},"xend":{},"y":{},"yend":{}},"33e810f11d8f":{"x":{},"y":{}},"33e83d196adb":{"yintercept":{}}},"cur_data":"33e8b125e4c","visdat":{"33e8b125e4c":["function (y) ","x"],"33e82a8a3c52":["function (y) ","x"],"33e86dec1fe8":["function (y) ","x"],"33e8a4c6ef5":["function (y) ","x"],"33e82f977dde":["function (y) ","x"],"33e810f11d8f":["function (y) ","x"],"33e83d196adb":["function (y) ","x"]},"highlight":{"on":"plotly_click","off":"plotly_doubleclick","persistent":false,"dynamic":false,"color":null,"selectize":false,"defaultValues":null,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedData304e9ece"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-7fa771798f1b3a89dda5">{"x":{"data":[{"x":[57.3274714591772],"y":[1.87365423460556],"text":"GO:0016604 (816) <br> nuclear body <br> 1.338e-02","key":["GO:0016604"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(16,150,24,1)","opacity":0.8,"size":22.6771653543307,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(16,150,24,1)"}},"hoveron":"points","set":"SharedData304e9ece","name":"GO:CC","legendgroup":"GO:CC","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"x":[34.6742408686399,3.70922220237242],"y":[2.11287094819132,1.38131872319012],"text":["GO:0048027 (27) <br> mRNA 5'-UTR binding <br> 7.711e-03","GO:0003724 (76) <br> RNA helicase activity <br> 4.156e-02"],"key":["GO:0048027","GO:0003724"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(220,57,18,1)","opacity":0.8,"size":[3.77952755905512,14.1923721978785],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(220,57,18,1)"}},"hoveron":"points","set":"SharedData304e9ece","name":"GO:MF","legendgroup":"GO:MF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null},{"x":[2,49.9206590071537],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(220,57,18,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[53.8226750487752,71.2217645783655],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(16,150,24,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[75.123780619987,193.971385215695],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(255,153,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[197.873401257316,200.003902016042],"y":[-1,-1],"text":"","type":"scatter","mode":"lines","line":{"width":11.3385826771654,"color":"rgba(221,68,119,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[180],"y":[16.2],"text":"values above this threshold are capped","hovertext":"","textfont":{"size":7.55905511811024,"color":"rgba(190,190,190,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,210],"y":[16,16],"text":"","type":"scatter","mode":"lines","line":{"width":0.755905511811024,"color":"rgba(190,190,190,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":29.2835201328352,"r":6.6417600664176,"b":58.5348701653872,"l":61.0377750103778},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,210],"tickmode":"array","ticktext":["GO:MF","GO:CC","GO:BP","KEGG"],"tickvals":[25.9603295035768,62.5222198135703,134.547582917841,198.938651636679],"categoryorder":"array","categoryarray":["GO:MF","GO:CC","GO:BP","KEGG"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-45,"showline":true,"linecolor":"rgba(190,190,190,1)","linewidth":0.132835201328352,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1,18.5],"tickmode":"array","ticktext":["0","2","4","6","8","10","12","14",">16"],"tickvals":[0,2,4,6,8,10,12,14,16],"categoryorder":"array","categoryarray":["0","2","4","6","8","10","12","14",">16"],"nticks":null,"ticks":"outside","tickcolor":"rgba(190,190,190,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(190,190,190,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"annotations":[{"text":"-log10(p-adj)","x":-0.00905891102808911,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis"},{"text":"query_1","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(169,169,169,1)","family":"","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":24.9730178497302,"yanchor":1,"ysizemode":"pixel"}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative","dragmode":"zoom"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"54ac580e2395":{"x":{},"y":{},"text":{},"colour":{},"size":{},"alpha":{},"type":"scatter"},"54acc132556":{"x":{},"xend":{},"y":{},"yend":{}},"54ac2fb0f":{"x":{},"xend":{},"y":{},"yend":{}},"54ac1fc3317b":{"x":{},"xend":{},"y":{},"yend":{}},"54ac44ba48e6":{"x":{},"xend":{},"y":{},"yend":{}},"54ac34e031f2":{"x":{},"y":{}},"54ac15bc4644":{"yintercept":{}}},"cur_data":"54ac580e2395","visdat":{"54ac580e2395":["function (y) ","x"],"54acc132556":["function (y) ","x"],"54ac2fb0f":["function (y) ","x"],"54ac1fc3317b":["function (y) ","x"],"54ac44ba48e6":["function (y) ","x"],"54ac34e031f2":["function (y) ","x"],"54ac15bc4644":["function (y) ","x"]},"highlight":{"on":"plotly_click","off":"plotly_doubleclick","persistent":false,"dynamic":false,"color":null,"selectize":false,"defaultValues":null,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedData304e9ece"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>write.table(GO_name, here::here(&quot;output/Significant.txt&quot;), quote = F, sep = &quot;\t&quot;, col.names = F, row.names = F)</code></pre>
 </div>
 <div id="table-results" class="section level3">
@@ -862,7 +902,7 @@ gostplot(GO, capped = TRUE, interactive = TRUE)</code></pre>
 </div>
 <div id="section" class="section level2 unnumbered">
 <h2></h2>
-<pre class="r"><code>saveWorkbook(excel, here::here(&quot;output/results_GN_MR_IPZC3H4_210721.xlsx&quot;), overwrite = T)</code></pre>
+<pre class="r"><code>saveWorkbook(excel, here::here(&quot;output/results_GN_MR_IPZC3H4_all_210721.xlsx&quot;), overwrite = T)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
