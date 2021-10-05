@@ -16,7 +16,9 @@ editor_options:
 
 + [all samples analysis](IPZC3H4_all.html): integration of new and old dataset.
 
-+ [imputation analysis](Template_LFQ.html):
++ [imputation analysis](Template_LFQ.html).
+
++ [imputation analysis both datasets](Template_LFQ_all.html).
 
 ***
 
